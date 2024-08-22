@@ -1,0 +1,3862 @@
+var discord = 'https://discord.gg/Kc8hPYkmK6';
+
+const banWebhook = 'https://discord.com/api/webhooks/1274881161856028704/WSfX7Tl_IPZlNxq9h1pgu-GyQhXD7rphyQ62brjGN8VrsMq3pnpdx_kkh9RnNzouP43v';
+
+const gameWebhook = 'https://discord.com/api/webhooks/1274880861199929384/3b-hn75VWaPmsN3yIoumLAtWKHbjNhJJgr4R8UtCzUtP9GrNq3PQ8lM1VrECuuD3Zkw_';
+const roomWebhook = 'https://discord.com/api/webhooks/1274881408879300628/D7trE5q5P0FK6Tkxb8ZdnuxbQnfhGYq6huaCETqADMnFRKsoJ1otHPm7dWy_rn5-A8ct';
+const adminWebhook = 'https://discord.com/api/webhooks/1274881534209556492/Pc__MpupAueqEKfsnRDPItj3rfUTnNuN5AdlZt8qBgvad5m93leB8rTSi6paaSiOZFzD';
+
+let isFirstTime = true;
+
+var idderoldeadmin = "<@1274880133748101191> <@1274880266065936426>" // Id del rol de administrador de la sala para las llamadas en discord
+var contraseñaOwner = "FEFECUADOR2024"; // SE PUEDE CAMBIAR
+
+var slotspass = "FEFAF27"
+
+const room = HBInit({
+    roomName: "[FEF] X4 Futsal 🟡🔵🔴",
+    maxPlayers: 30,
+    public: true,
+    noPlayer: true,
+    geo: { "code": "EC", "lat": -1.473932, "lon": -78.364096 },
+
+});
+
+const aloneMap = '{"name":"FEF Af","width":510,"height":230,"bg":{"kickOffRadius":80,"color":"1D2431"},"vertexes":[{"x":-400,"y":-70,"cMask":["ball"]},{"x":-435,"y":-70,"cMask":["ball"]},{"x":-434,"y":-71,"cMask":["ball"]},{"x":-434,"y":71,"cMask":["ball"]},{"x":-435,"y":70,"cMask":["ball"]},{"x":-400,"y":70,"cMask":["ball"]},{"x":400,"y":70,"cMask":["ball"]},{"x":435,"y":70,"cMask":["ball"]},{"x":434,"y":71,"cMask":["ball"]},{"x":434,"y":-71,"cMask":["ball"]},{"x":435,"y":-70,"cMask":["ball"]},{"x":400,"y":-70,"cMask":["ball"]},{"x":-400,"y":-201.5,"cMask":["ball"]},{"x":-400,"y":-70,"cMask":["ball"]},{"x":-400,"y":70,"cMask":["ball"]},{"x":-400,"y":201.5,"cMask":["ball"]},{"x":-400,"y":200,"cMask":["ball"]},{"x":400,"y":200,"cMask":["ball"]},{"x":400,"y":201.5,"cMask":["ball"]},{"x":400,"y":70,"cMask":["ball"]},{"x":400,"y":-70,"cMask":["ball"]},{"x":400,"y":-201.5,"cMask":["ball"]},{"x":400,"y":-200,"cMask":["ball"]},{"x":-400,"y":-200,"cMask":["ball"]},{"x":-400,"y":-70,"cMask":[]},{"x":-400,"y":70,"cMask":[]},{"x":400,"y":70,"cMask":[]},{"x":400,"y":-70,"cMask":[]},{"x":0,"y":-80,"cMask":["red","blue"],"cGroup":["redKO"]},{"x":0,"y":80,"cMask":["red","blue"],"cGroup":["redKO"]},{"x":0,"y":-230,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":230,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":-198,"cMask":[]},{"x":0,"y":-80,"cMask":[]},{"x":0,"y":198,"cMask":[]},{"x":0,"y":80,"cMask":[]},{"x":-50,"y":30,"cMask":[]},{"x":-25,"y":-30,"cMask":[]},{"x":11,"y":30,"cMask":[]},{"x":20,"y":-30,"cMask":[]},{"x":-42.5,"y":30,"cMask":[]},{"x":-17.5,"y":-30,"cMask":[]},{"x":-52,"y":30,"cMask":[]},{"x":-27,"y":-30,"cMask":[]},{"x":-40.5,"y":30,"cMask":[]},{"x":-15.5,"y":-30,"cMask":[]},{"x":-33,"y":30,"cMask":[]},{"x":-8,"y":-30,"cMask":[]},{"x":-31,"y":30,"cMask":[]},{"x":-6,"y":-30,"cMask":[]},{"x":-29,"y":30,"cMask":[]},{"x":-4,"y":-30,"cMask":[]},{"x":-27,"y":30,"cMask":[]},{"x":-2,"y":-30,"cMask":[]},{"x":-25,"y":30,"cMask":[]},{"x":0,"y":-30,"cMask":[]},{"x":5,"y":30,"cMask":[]},{"x":0,"y":-30,"cMask":[]},{"x":3,"y":30,"cMask":[]},{"x":-2,"y":-30,"cMask":[]},{"x":1,"y":30,"cMask":[]},{"x":-4,"y":-30,"cMask":[]},{"x":-1,"y":30,"cMask":[]},{"x":-6,"y":-30,"cMask":[]},{"x":-3,"y":30,"cMask":[]},{"x":-8,"y":-30,"cMask":[]},{"x":-21,"y":19,"cMask":[]},{"x":-5,"y":19,"cMask":[]},{"x":-21,"y":17,"cMask":[]},{"x":-5,"y":17,"cMask":[]},{"x":-21,"y":15,"cMask":[]},{"x":-5,"y":15,"cMask":[]},{"x":-21,"y":13,"cMask":[]},{"x":-5,"y":13,"cMask":[]},{"x":-21,"y":11,"cMask":[]},{"x":-5,"y":11,"cMask":[]},{"x":13,"y":30,"cMask":[]},{"x":22,"y":-30,"cMask":[]},{"x":15,"y":30,"cMask":[]},{"x":24,"y":-30,"cMask":[]},{"x":17,"y":30,"cMask":[]},{"x":26,"y":-30,"cMask":[]},{"x":19,"y":30,"cMask":[]},{"x":28,"y":-30,"cMask":[]},{"x":19,"y":-29,"cMask":[]},{"x":49,"y":-29,"cMask":[]},{"x":19,"y":-27,"cMask":[]},{"x":49,"y":-27,"cMask":[]},{"x":19,"y":-25,"cMask":[]},{"x":49,"y":-25,"cMask":[]},{"x":19,"y":-23,"cMask":[]},{"x":49,"y":-23,"cMask":[]},{"x":19,"y":-21,"cMask":[]},{"x":49,"y":-21,"cMask":[]},{"x":23,"y":-6,"cMask":[]},{"x":42,"y":-6,"cMask":[]},{"x":23,"y":-4,"cMask":[]},{"x":42,"y":-4,"cMask":[]},{"x":23,"y":-2,"cMask":[]},{"x":42,"y":-2,"cMask":[]},{"x":23,"y":0,"cMask":[]},{"x":42,"y":0,"cMask":[]},{"x":23,"y":2,"cMask":[]},{"x":42,"y":2,"cMask":[]},{"x":-52,"y":27,"cMask":[]},{"x":-27,"y":-33,"cMask":[]},{"x":9,"y":27,"cMask":[]},{"x":18,"y":-33,"cMask":[]},{"x":-44.5,"y":27,"cMask":[]},{"x":-19.5,"y":-33,"cMask":[]},{"x":-54,"y":27,"cMask":[]},{"x":-29,"y":-33,"cMask":[]},{"x":-42.5,"y":27,"cMask":[]},{"x":-17.5,"y":-33,"cMask":[]},{"x":-35,"y":27,"cMask":[]},{"x":-10,"y":-33,"cMask":[]},{"x":-33,"y":27,"cMask":[]},{"x":-8,"y":-33,"cMask":[]},{"x":-31,"y":27,"cMask":[]},{"x":-6,"y":-33,"cMask":[]},{"x":-29,"y":27,"cMask":[]},{"x":-4,"y":-33,"cMask":[]},{"x":-27,"y":27,"cMask":[]},{"x":-2,"y":-33,"cMask":[]},{"x":3,"y":27,"cMask":[]},{"x":-2,"y":-33,"cMask":[]},{"x":1,"y":27,"cMask":[]},{"x":-4,"y":-33,"cMask":[]},{"x":-1,"y":27,"cMask":[]},{"x":-6,"y":-33,"cMask":[]},{"x":-3,"y":27,"cMask":[]},{"x":-8,"y":-33,"cMask":[]},{"x":-5,"y":27,"cMask":[]},{"x":-10,"y":-33,"cMask":[]},{"x":-23,"y":16,"cMask":[]},{"x":-7,"y":16,"cMask":[]},{"x":-23,"y":14,"cMask":[]},{"x":-7,"y":14,"cMask":[]},{"x":-23,"y":12,"cMask":[]},{"x":-7,"y":12,"cMask":[]},{"x":-23,"y":10,"cMask":[]},{"x":-7,"y":10,"cMask":[]},{"x":-23,"y":8,"cMask":[]},{"x":-7,"y":8,"cMask":[]},{"x":11,"y":27,"cMask":[]},{"x":20,"y":-33,"cMask":[]},{"x":13,"y":27,"cMask":[]},{"x":22,"y":-33,"cMask":[]},{"x":15,"y":27,"cMask":[]},{"x":24,"y":-33,"cMask":[]},{"x":17,"y":27,"cMask":[]},{"x":26,"y":-33,"cMask":[]},{"x":17,"y":-32,"cMask":[]},{"x":47,"y":-32,"cMask":[]},{"x":17,"y":-30,"cMask":[]},{"x":47,"y":-30,"cMask":[]},{"x":17,"y":-28,"cMask":[]},{"x":47,"y":-28,"cMask":[]},{"x":17,"y":-26,"cMask":[]},{"x":47,"y":-26,"cMask":[]},{"x":17,"y":-24,"cMask":[]},{"x":47,"y":-24,"cMask":[]},{"x":21,"y":-9,"cMask":[]},{"x":40,"y":-9,"cMask":[]},{"x":21,"y":-7,"cMask":[]},{"x":40,"y":-7,"cMask":[]},{"x":21,"y":-5,"cMask":[]},{"x":40,"y":-5,"cMask":[]},{"x":21,"y":-3,"cMask":[]},{"x":40,"y":-3,"cMask":[]},{"x":21,"y":-1,"cMask":[]},{"x":40,"y":-1,"cMask":[]}],"segments":[{"v0":0,"v1":1,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":3,"v1":2,"bias":-10,"curve":35,"curveF":3.1715948023632126,"cMask":["ball"],"color":"717F98"},{"v0":4,"v1":5,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":6,"v1":7,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":9,"v1":8,"bias":-10,"curve":35,"curveF":3.1715948023632126,"cMask":["ball"],"color":"717F98"},{"v0":10,"v1":11,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":12,"v1":13,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":14,"v1":15,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":16,"v1":17,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":18,"v1":19,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":20,"v1":21,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":22,"v1":23,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":24,"v1":25,"cMask":[],"color":"3B424F"},{"v0":26,"v1":27,"cMask":[],"color":"3B424F"},{"v0":30,"v1":28,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"v0":31,"v1":29,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"v0":29,"v1":28,"curve":180,"curveF":6.123233995736766e-17,"vis":false,"cMask":["red","blue"],"cGroup":["blueKO"]},{"v0":28,"v1":29,"curve":180,"curveF":6.123233995736766e-17,"vis":false,"cMask":["red","blue"],"cGroup":["redKO"]},{"v0":32,"v1":33,"cMask":[],"color":"161C26"},{"v0":34,"v1":35,"cMask":[],"color":"161C26"},{"v0":35,"v1":33,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":33,"v1":35,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":36,"v1":37,"cMask":[],"color":"9101D"},{"v0":38,"v1":39,"cMask":[],"color":"9101D"},{"v0":40,"v1":41,"cMask":[],"color":"9101D"},{"v0":42,"v1":43,"cMask":[],"color":"9101D"},{"v0":44,"v1":45,"cMask":[],"color":"9101D"},{"v0":46,"v1":47,"cMask":[],"color":"9101D"},{"v0":48,"v1":49,"cMask":[],"color":"9101D"},{"v0":50,"v1":51,"cMask":[],"color":"9101D"},{"v0":52,"v1":53,"cMask":[],"color":"9101D"},{"v0":54,"v1":55,"cMask":[],"color":"9101D"},{"v0":56,"v1":57,"cMask":[],"color":"9101D"},{"v0":58,"v1":59,"cMask":[],"color":"9101D"},{"v0":60,"v1":61,"cMask":[],"color":"9101D"},{"v0":62,"v1":63,"cMask":[],"color":"9101D"},{"v0":64,"v1":65,"cMask":[],"color":"9101D"},{"v0":66,"v1":67,"cMask":[],"color":"9101D"},{"v0":68,"v1":69,"cMask":[],"color":"9101D"},{"v0":70,"v1":71,"cMask":[],"color":"9101D"},{"v0":72,"v1":73,"cMask":[],"color":"9101D"},{"v0":74,"v1":75,"cMask":[],"color":"9101D"},{"v0":76,"v1":77,"cMask":[],"color":"9101D"},{"v0":78,"v1":79,"cMask":[],"color":"9101D"},{"v0":80,"v1":81,"cMask":[],"color":"9101D"},{"v0":82,"v1":83,"cMask":[],"color":"9101D"},{"v0":84,"v1":85,"cMask":[],"color":"9101D"},{"v0":86,"v1":87,"cMask":[],"color":"9101D"},{"v0":88,"v1":89,"cMask":[],"color":"9101D"},{"v0":90,"v1":91,"cMask":[],"color":"9101D"},{"v0":92,"v1":93,"cMask":[],"color":"9101D"},{"v0":94,"v1":95,"cMask":[],"color":"9101D"},{"v0":96,"v1":97,"cMask":[],"color":"9101D"},{"v0":98,"v1":99,"cMask":[],"color":"9101D"},{"v0":100,"v1":101,"cMask":[],"color":"9101D"},{"v0":102,"v1":103,"cMask":[],"color":"9101D"},{"v0":104,"v1":105,"cMask":[],"color":"333945"},{"v0":106,"v1":107,"cMask":[],"color":"333945"},{"v0":108,"v1":109,"cMask":[],"color":"333945"},{"v0":110,"v1":111,"cMask":[],"color":"333945"},{"v0":112,"v1":113,"cMask":[],"color":"333945"},{"v0":114,"v1":115,"cMask":[],"color":"333945"},{"v0":116,"v1":117,"cMask":[],"color":"333945"},{"v0":118,"v1":119,"cMask":[],"color":"333945"},{"v0":120,"v1":121,"cMask":[],"color":"333945"},{"v0":122,"v1":123,"cMask":[],"color":"333945"},{"v0":124,"v1":125,"cMask":[],"color":"333945"},{"v0":126,"v1":127,"cMask":[],"color":"333945"},{"v0":128,"v1":129,"cMask":[],"color":"333945"},{"v0":130,"v1":131,"cMask":[],"color":"333945"},{"v0":132,"v1":133,"cMask":[],"color":"333945"},{"v0":134,"v1":135,"cMask":[],"color":"333945"},{"v0":136,"v1":137,"cMask":[],"color":"333945"},{"v0":138,"v1":139,"cMask":[],"color":"333945"},{"v0":140,"v1":141,"cMask":[],"color":"333945"},{"v0":142,"v1":143,"cMask":[],"color":"333945"},{"v0":144,"v1":145,"cMask":[],"color":"333945"},{"v0":146,"v1":147,"cMask":[],"color":"333945"},{"v0":148,"v1":149,"cMask":[],"color":"333945"},{"v0":150,"v1":151,"cMask":[],"color":"333945"},{"v0":152,"v1":153,"cMask":[],"color":"333945"},{"v0":154,"v1":155,"cMask":[],"color":"333945"},{"v0":156,"v1":157,"cMask":[],"color":"333945"},{"v0":158,"v1":159,"cMask":[],"color":"333945"},{"v0":160,"v1":161,"cMask":[],"color":"333945"},{"v0":162,"v1":163,"cMask":[],"color":"333945"},{"v0":164,"v1":165,"cMask":[],"color":"333945"},{"v0":166,"v1":167,"cMask":[],"color":"333945"},{"v0":168,"v1":169,"cMask":[],"color":"333945"},{"v0":170,"v1":171,"cMask":[],"color":"333945"}],"planes":[{"normal":[0,1],"dist":-230},{"normal":[0,-1],"dist":-230},{"normal":[1,0],"dist":-510},{"normal":[-1,0],"dist":-510}],"goals":[],"discs":[{"radius":5.8,"bCoef":0.412,"invMass":1.55,"color":"FFA500","cGroup":["ball","kick","score"]},{"pos":[-400,70],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[-400,-70],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[400,70],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[400,-70],"radius":5.4,"invMass":0,"color":"3B424F"}],"playerPhysics":{"bCoef":0,"acceleration":0.11,"kickingAcceleration":0.083,"kickStrength":4.2},"ballPhysics":"disc0","spawnDistance":366.5}';
+const classicMap = '{"name":"FEF Af","width":510,"height":230,"bg":{"kickOffRadius":80,"color":"1D2431"},"vertexes":[{"x":-400,"y":-70,"bCoef":0.1,"cMask":["ball"]},{"x":-435,"y":-70,"bCoef":0.1,"cMask":["ball"]},{"x":-434,"y":-71,"bCoef":0.1,"cMask":["ball"]},{"x":-434,"y":71,"bCoef":0.1,"cMask":["ball"]},{"x":-435,"y":70,"bCoef":0.1,"cMask":["ball"]},{"x":-400,"y":70,"bCoef":0.1,"cMask":["ball"]},{"x":400,"y":70,"bCoef":0.1,"cMask":["ball"]},{"x":435,"y":70,"bCoef":0.1,"cMask":["ball"]},{"x":434,"y":71,"bCoef":0.1,"cMask":["ball"]},{"x":434,"y":-71,"bCoef":0.1,"cMask":["ball"]},{"x":435,"y":-70,"bCoef":0.1,"cMask":["ball"]},{"x":400,"y":-70,"bCoef":0.1,"cMask":["ball"]},{"x":-400,"y":-201.5,"cMask":["ball"]},{"x":-400,"y":-70,"cMask":["ball"]},{"x":-400,"y":70,"cMask":["ball"]},{"x":-400,"y":201.5,"cMask":["ball"]},{"x":-400,"y":200,"cMask":["ball"]},{"x":400,"y":200,"cMask":["ball"]},{"x":400,"y":201.5,"cMask":["ball"]},{"x":400,"y":70,"cMask":["ball"]},{"x":400,"y":-70,"cMask":["ball"]},{"x":400,"y":-201.5,"cMask":["ball"]},{"x":400,"y":-200,"cMask":["ball"]},{"x":-400,"y":-200,"cMask":["ball"]},{"x":-400,"y":-70,"cMask":[]},{"x":-400,"y":70,"cMask":[]},{"x":400,"y":70,"cMask":[]},{"x":400,"y":-70,"cMask":[]},{"x":0,"y":-80,"cMask":["red","blue"],"cGroup":["redKO"]},{"x":0,"y":80,"cMask":["red","blue"],"cGroup":["redKO"]},{"x":0,"y":-230,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":230,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":-198,"cMask":[]},{"x":0,"y":-80,"cMask":[]},{"x":0,"y":198,"cMask":[]},{"x":0,"y":80,"cMask":[]},{"x":-50,"y":30,"cMask":[]},{"x":-25,"y":-30,"cMask":[]},{"x":11,"y":30,"cMask":[]},{"x":20,"y":-30,"cMask":[]},{"x":-42.5,"y":30,"cMask":[]},{"x":-17.5,"y":-30,"cMask":[]},{"x":-52,"y":30,"cMask":[]},{"x":-27,"y":-30,"cMask":[]},{"x":-40.5,"y":30,"cMask":[]},{"x":-15.5,"y":-30,"cMask":[]},{"x":-33,"y":30,"cMask":[]},{"x":-8,"y":-30,"cMask":[]},{"x":-31,"y":30,"cMask":[]},{"x":-6,"y":-30,"cMask":[]},{"x":-29,"y":30,"cMask":[]},{"x":-4,"y":-30,"cMask":[]},{"x":-27,"y":30,"cMask":[]},{"x":-2,"y":-30,"cMask":[]},{"x":-25,"y":30,"cMask":[]},{"x":0,"y":-30,"cMask":[]},{"x":5,"y":30,"cMask":[]},{"x":0,"y":-30,"cMask":[]},{"x":3,"y":30,"cMask":[]},{"x":-2,"y":-30,"cMask":[]},{"x":1,"y":30,"cMask":[]},{"x":-4,"y":-30,"cMask":[]},{"x":-1,"y":30,"cMask":[]},{"x":-6,"y":-30,"cMask":[]},{"x":-3,"y":30,"cMask":[]},{"x":-8,"y":-30,"cMask":[]},{"x":-21,"y":19,"cMask":[]},{"x":-5,"y":19,"cMask":[]},{"x":-21,"y":17,"cMask":[]},{"x":-5,"y":17,"cMask":[]},{"x":-21,"y":15,"cMask":[]},{"x":-5,"y":15,"cMask":[]},{"x":-21,"y":13,"cMask":[]},{"x":-5,"y":13,"cMask":[]},{"x":-21,"y":11,"cMask":[]},{"x":-5,"y":11,"cMask":[]},{"x":13,"y":30,"cMask":[]},{"x":22,"y":-30,"cMask":[]},{"x":15,"y":30,"cMask":[]},{"x":24,"y":-30,"cMask":[]},{"x":17,"y":30,"cMask":[]},{"x":26,"y":-30,"cMask":[]},{"x":19,"y":30,"cMask":[]},{"x":28,"y":-30,"cMask":[]},{"x":19,"y":-29,"cMask":[]},{"x":49,"y":-29,"cMask":[]},{"x":19,"y":-27,"cMask":[]},{"x":49,"y":-27,"cMask":[]},{"x":19,"y":-25,"cMask":[]},{"x":49,"y":-25,"cMask":[]},{"x":19,"y":-23,"cMask":[]},{"x":49,"y":-23,"cMask":[]},{"x":19,"y":-21,"cMask":[]},{"x":49,"y":-21,"cMask":[]},{"x":23,"y":-6,"cMask":[]},{"x":42,"y":-6,"cMask":[]},{"x":23,"y":-4,"cMask":[]},{"x":42,"y":-4,"cMask":[]},{"x":23,"y":-2,"cMask":[]},{"x":42,"y":-2,"cMask":[]},{"x":23,"y":0,"cMask":[]},{"x":42,"y":0,"cMask":[]},{"x":23,"y":2,"cMask":[]},{"x":42,"y":2,"cMask":[]},{"x":-52,"y":27,"cMask":[]},{"x":-27,"y":-33,"cMask":[]},{"x":9,"y":27,"cMask":[]},{"x":18,"y":-33,"cMask":[]},{"x":-44.5,"y":27,"cMask":[]},{"x":-19.5,"y":-33,"cMask":[]},{"x":-54,"y":27,"cMask":[]},{"x":-29,"y":-33,"cMask":[]},{"x":-42.5,"y":27,"cMask":[]},{"x":-17.5,"y":-33,"cMask":[]},{"x":-35,"y":27,"cMask":[]},{"x":-10,"y":-33,"cMask":[]},{"x":-33,"y":27,"cMask":[]},{"x":-8,"y":-33,"cMask":[]},{"x":-31,"y":27,"cMask":[]},{"x":-6,"y":-33,"cMask":[]},{"x":-29,"y":27,"cMask":[]},{"x":-4,"y":-33,"cMask":[]},{"x":-27,"y":27,"cMask":[]},{"x":-2,"y":-33,"cMask":[]},{"x":3,"y":27,"cMask":[]},{"x":-2,"y":-33,"cMask":[]},{"x":1,"y":27,"cMask":[]},{"x":-4,"y":-33,"cMask":[]},{"x":-1,"y":27,"cMask":[]},{"x":-6,"y":-33,"cMask":[]},{"x":-3,"y":27,"cMask":[]},{"x":-8,"y":-33,"cMask":[]},{"x":-5,"y":27,"cMask":[]},{"x":-10,"y":-33,"cMask":[]},{"x":-23,"y":16,"cMask":[]},{"x":-7,"y":16,"cMask":[]},{"x":-23,"y":14,"cMask":[]},{"x":-7,"y":14,"cMask":[]},{"x":-23,"y":12,"cMask":[]},{"x":-7,"y":12,"cMask":[]},{"x":-23,"y":10,"cMask":[]},{"x":-7,"y":10,"cMask":[]},{"x":-23,"y":8,"cMask":[]},{"x":-7,"y":8,"cMask":[]},{"x":11,"y":27,"cMask":[]},{"x":20,"y":-33,"cMask":[]},{"x":13,"y":27,"cMask":[]},{"x":22,"y":-33,"cMask":[]},{"x":15,"y":27,"cMask":[]},{"x":24,"y":-33,"cMask":[]},{"x":17,"y":27,"cMask":[]},{"x":26,"y":-33,"cMask":[]},{"x":17,"y":-32,"cMask":[]},{"x":47,"y":-32,"cMask":[]},{"x":17,"y":-30,"cMask":[]},{"x":47,"y":-30,"cMask":[]},{"x":17,"y":-28,"cMask":[]},{"x":47,"y":-28,"cMask":[]},{"x":17,"y":-26,"cMask":[]},{"x":47,"y":-26,"cMask":[]},{"x":17,"y":-24,"cMask":[]},{"x":47,"y":-24,"cMask":[]},{"x":21,"y":-9,"cMask":[]},{"x":40,"y":-9,"cMask":[]},{"x":21,"y":-7,"cMask":[]},{"x":40,"y":-7,"cMask":[]},{"x":21,"y":-5,"cMask":[]},{"x":40,"y":-5,"cMask":[]},{"x":21,"y":-3,"cMask":[]},{"x":40,"y":-3,"cMask":[]},{"x":21,"y":-1,"cMask":[]},{"x":40,"y":-1,"cMask":[]}],"segments":[{"v0":0,"v1":1,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":3,"v1":2,"bias":-10,"bCoef":0.1,"curve":35,"curveF":3.1715948023632126,"cMask":["ball"],"color":"717F98"},{"v0":4,"v1":5,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":6,"v1":7,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":9,"v1":8,"bias":-10,"bCoef":0.1,"curve":35,"curveF":3.1715948023632126,"cMask":["ball"],"color":"717F98"},{"v0":10,"v1":11,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":12,"v1":13,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":14,"v1":15,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":16,"v1":17,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":18,"v1":19,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":20,"v1":21,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":22,"v1":23,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":24,"v1":25,"cMask":[],"color":"3B424F"},{"v0":26,"v1":27,"cMask":[],"color":"3B424F"},{"v0":30,"v1":28,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"v0":31,"v1":29,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"v0":29,"v1":28,"curve":180,"curveF":6.123233995736766e-17,"vis":false,"cMask":["red","blue"],"cGroup":["blueKO"]},{"v0":28,"v1":29,"curve":180,"curveF":6.123233995736766e-17,"vis":false,"cMask":["red","blue"],"cGroup":["redKO"]},{"v0":32,"v1":33,"cMask":[],"color":"161C26"},{"v0":34,"v1":35,"cMask":[],"color":"161C26"},{"v0":35,"v1":33,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":33,"v1":35,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":36,"v1":37,"cMask":[],"color":"9101D"},{"v0":38,"v1":39,"cMask":[],"color":"9101D"},{"v0":40,"v1":41,"cMask":[],"color":"9101D"},{"v0":42,"v1":43,"cMask":[],"color":"9101D"},{"v0":44,"v1":45,"cMask":[],"color":"9101D"},{"v0":46,"v1":47,"cMask":[],"color":"9101D"},{"v0":48,"v1":49,"cMask":[],"color":"9101D"},{"v0":50,"v1":51,"cMask":[],"color":"9101D"},{"v0":52,"v1":53,"cMask":[],"color":"9101D"},{"v0":54,"v1":55,"cMask":[],"color":"9101D"},{"v0":56,"v1":57,"cMask":[],"color":"9101D"},{"v0":58,"v1":59,"cMask":[],"color":"9101D"},{"v0":60,"v1":61,"cMask":[],"color":"9101D"},{"v0":62,"v1":63,"cMask":[],"color":"9101D"},{"v0":64,"v1":65,"cMask":[],"color":"9101D"},{"v0":66,"v1":67,"cMask":[],"color":"9101D"},{"v0":68,"v1":69,"cMask":[],"color":"9101D"},{"v0":70,"v1":71,"cMask":[],"color":"9101D"},{"v0":72,"v1":73,"cMask":[],"color":"9101D"},{"v0":74,"v1":75,"cMask":[],"color":"9101D"},{"v0":76,"v1":77,"cMask":[],"color":"9101D"},{"v0":78,"v1":79,"cMask":[],"color":"9101D"},{"v0":80,"v1":81,"cMask":[],"color":"9101D"},{"v0":82,"v1":83,"cMask":[],"color":"9101D"},{"v0":84,"v1":85,"cMask":[],"color":"9101D"},{"v0":86,"v1":87,"cMask":[],"color":"9101D"},{"v0":88,"v1":89,"cMask":[],"color":"9101D"},{"v0":90,"v1":91,"cMask":[],"color":"9101D"},{"v0":92,"v1":93,"cMask":[],"color":"9101D"},{"v0":94,"v1":95,"cMask":[],"color":"9101D"},{"v0":96,"v1":97,"cMask":[],"color":"9101D"},{"v0":98,"v1":99,"cMask":[],"color":"9101D"},{"v0":100,"v1":101,"cMask":[],"color":"9101D"},{"v0":102,"v1":103,"cMask":[],"color":"9101D"},{"v0":104,"v1":105,"cMask":[],"color":"333945"},{"v0":106,"v1":107,"cMask":[],"color":"333945"},{"v0":108,"v1":109,"cMask":[],"color":"333945"},{"v0":110,"v1":111,"cMask":[],"color":"333945"},{"v0":112,"v1":113,"cMask":[],"color":"333945"},{"v0":114,"v1":115,"cMask":[],"color":"333945"},{"v0":116,"v1":117,"cMask":[],"color":"333945"},{"v0":118,"v1":119,"cMask":[],"color":"333945"},{"v0":120,"v1":121,"cMask":[],"color":"333945"},{"v0":122,"v1":123,"cMask":[],"color":"333945"},{"v0":124,"v1":125,"cMask":[],"color":"333945"},{"v0":126,"v1":127,"cMask":[],"color":"333945"},{"v0":128,"v1":129,"cMask":[],"color":"333945"},{"v0":130,"v1":131,"cMask":[],"color":"333945"},{"v0":132,"v1":133,"cMask":[],"color":"333945"},{"v0":134,"v1":135,"cMask":[],"color":"333945"},{"v0":136,"v1":137,"cMask":[],"color":"333945"},{"v0":138,"v1":139,"cMask":[],"color":"333945"},{"v0":140,"v1":141,"cMask":[],"color":"333945"},{"v0":142,"v1":143,"cMask":[],"color":"333945"},{"v0":144,"v1":145,"cMask":[],"color":"333945"},{"v0":146,"v1":147,"cMask":[],"color":"333945"},{"v0":148,"v1":149,"cMask":[],"color":"333945"},{"v0":150,"v1":151,"cMask":[],"color":"333945"},{"v0":152,"v1":153,"cMask":[],"color":"333945"},{"v0":154,"v1":155,"cMask":[],"color":"333945"},{"v0":156,"v1":157,"cMask":[],"color":"333945"},{"v0":158,"v1":159,"cMask":[],"color":"333945"},{"v0":160,"v1":161,"cMask":[],"color":"333945"},{"v0":162,"v1":163,"cMask":[],"color":"333945"},{"v0":164,"v1":165,"cMask":[],"color":"333945"},{"v0":166,"v1":167,"cMask":[],"color":"333945"},{"v0":168,"v1":169,"cMask":[],"color":"333945"},{"v0":170,"v1":171,"cMask":[],"color":"333945"}],"planes":[{"normal":[0,1],"dist":-230},{"normal":[0,-1],"dist":-230},{"normal":[1,0],"dist":-510},{"normal":[-1,0],"dist":-510}],"goals":[{"p0":[-408.3,-70],"p1":[-408.3,70],"team":"red"},{"p0":[408.3,70],"p1":[408.3,-70],"team":"blue"}],"discs":[{"radius":5.8,"bCoef":0.412,"invMass":1.55,"color":"FFA500","cGroup":["ball","kick","score"]},{"pos":[-400,70],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[-400,-70],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[400,70],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[400,-70],"radius":5.4,"invMass":0,"color":"3B424F"}],"playerPhysics":{"bCoef":0,"acceleration":0.11,"kickingAcceleration":0.083,"kickStrength":4.2},"ballPhysics":"disc0","spawnDistance":366.5}';
+const bigMap = '{"name":"FEF Af","width":810,"height":350,"bg":{"kickOffRadius":80,"color":"1D2431"},"vertexes":[{"x":-700,"y":-85,"bCoef":0.1,"cMask":["ball"]},{"x":-735,"y":-85,"bCoef":0.1,"cMask":["ball"]},{"x":-734,"y":-86,"bCoef":0.1,"cMask":["ball"]},{"x":-734,"y":86,"bCoef":0.1,"cMask":["ball"]},{"x":-735,"y":85,"bCoef":0.1,"cMask":["ball"]},{"x":-700,"y":85,"bCoef":0.1,"cMask":["ball"]},{"x":700,"y":85,"bCoef":0.1,"cMask":["ball"]},{"x":735,"y":85,"bCoef":0.1,"cMask":["ball"]},{"x":734,"y":86,"bCoef":0.1,"cMask":["ball"]},{"x":734,"y":-86,"bCoef":0.1,"cMask":["ball"]},{"x":735,"y":-85,"bCoef":0.1,"cMask":["ball"]},{"x":700,"y":-85,"bCoef":0.1,"cMask":["ball"]},{"x":-700,"y":-321.5,"cMask":["ball"]},{"x":-700,"y":-85,"cMask":["ball"]},{"x":-700,"y":85,"cMask":["ball"]},{"x":-700,"y":321.5,"cMask":["ball"]},{"x":-700,"y":320,"cMask":["ball"]},{"x":700,"y":320,"cMask":["ball"]},{"x":700,"y":321.5,"cMask":["ball"]},{"x":700,"y":85,"cMask":["ball"]},{"x":700,"y":-85,"cMask":["ball"]},{"x":700,"y":-321.5,"cMask":["ball"]},{"x":700,"y":-320,"cMask":["ball"]},{"x":-700,"y":-320,"cMask":["ball"]},{"x":-700,"y":-85,"cMask":[]},{"x":-700,"y":85,"cMask":[]},{"x":700,"y":85,"cMask":[]},{"x":700,"y":-85,"cMask":[]},{"x":-360,"y":318,"cMask":[]},{"x":-360,"y":-318,"cMask":[]},{"x":360,"y":-318,"cMask":[]},{"x":360,"y":318,"cMask":[]},{"x":-500,"y":-1,"cMask":[]},{"x":-500,"y":1,"cMask":[]},{"x":-500,"y":-2,"cMask":[]},{"x":-500,"y":2,"cMask":[]},{"x":500,"y":-1,"cMask":[]},{"x":500,"y":1,"cMask":[]},{"x":500,"y":-2,"cMask":[]},{"x":500,"y":2,"cMask":[]},{"x":-360,"y":-135,"cMask":[]},{"x":-360,"y":135,"cMask":[]},{"x":360,"y":135,"cMask":[]},{"x":360,"y":-135,"cMask":[]},{"x":-698,"y":125,"cMask":[]},{"x":-630,"y":125,"cMask":[]},{"x":-630,"y":-125,"cMask":[]},{"x":-698,"y":-125,"cMask":[]},{"x":-630,"y":126.5,"cMask":[]},{"x":-630,"y":-126.5,"cMask":[]},{"x":698,"y":125,"cMask":[]},{"x":630,"y":125,"cMask":[]},{"x":630,"y":-125,"cMask":[]},{"x":698,"y":-125,"cMask":[]},{"x":630,"y":126.5,"cMask":[]},{"x":630,"y":-126.5,"cMask":[]},{"x":0,"y":-350,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":-80,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":80,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":0,"y":350,"bCoef":0.1,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"x":-50,"y":30,"cMask":[]},{"x":-25,"y":-30,"cMask":[]},{"x":11,"y":30,"cMask":[]},{"x":20,"y":-30,"cMask":[]},{"x":-42.5,"y":30,"cMask":[]},{"x":-17.5,"y":-30,"cMask":[]},{"x":-52,"y":30,"cMask":[]},{"x":-27,"y":-30,"cMask":[]},{"x":-40.5,"y":30,"cMask":[]},{"x":-15.5,"y":-30,"cMask":[]},{"x":-33,"y":30,"cMask":[]},{"x":-8,"y":-30,"cMask":[]},{"x":-31,"y":30,"cMask":[]},{"x":-6,"y":-30,"cMask":[]},{"x":-29,"y":30,"cMask":[]},{"x":-4,"y":-30,"cMask":[]},{"x":-27,"y":30,"cMask":[]},{"x":-2,"y":-30,"cMask":[]},{"x":-25,"y":30,"cMask":[]},{"x":0,"y":-30,"cMask":[]},{"x":5,"y":30,"cMask":[]},{"x":0,"y":-30,"cMask":[]},{"x":3,"y":30,"cMask":[]},{"x":-2,"y":-30,"cMask":[]},{"x":1,"y":30,"cMask":[]},{"x":-4,"y":-30,"cMask":[]},{"x":-1,"y":30,"cMask":[]},{"x":-6,"y":-30,"cMask":[]},{"x":-3,"y":30,"cMask":[]},{"x":-8,"y":-30,"cMask":[]},{"x":-21,"y":19,"cMask":[]},{"x":-5,"y":19,"cMask":[]},{"x":-21,"y":17,"cMask":[]},{"x":-5,"y":17,"cMask":[]},{"x":-21,"y":15,"cMask":[]},{"x":-5,"y":15,"cMask":[]},{"x":-21,"y":13,"cMask":[]},{"x":-5,"y":13,"cMask":[]},{"x":-21,"y":11,"cMask":[]},{"x":-5,"y":11,"cMask":[]},{"x":13,"y":30,"cMask":[]},{"x":22,"y":-30,"cMask":[]},{"x":15,"y":30,"cMask":[]},{"x":24,"y":-30,"cMask":[]},{"x":17,"y":30,"cMask":[]},{"x":26,"y":-30,"cMask":[]},{"x":19,"y":30,"cMask":[]},{"x":28,"y":-30,"cMask":[]},{"x":19,"y":-29,"cMask":[]},{"x":49,"y":-29,"cMask":[]},{"x":19,"y":-27,"cMask":[]},{"x":49,"y":-27,"cMask":[]},{"x":19,"y":-25,"cMask":[]},{"x":49,"y":-25,"cMask":[]},{"x":19,"y":-23,"cMask":[]},{"x":49,"y":-23,"cMask":[]},{"x":19,"y":-21,"cMask":[]},{"x":49,"y":-21,"cMask":[]},{"x":23,"y":-6,"cMask":[]},{"x":42,"y":-6,"cMask":[]},{"x":23,"y":-4,"cMask":[]},{"x":42,"y":-4,"cMask":[]},{"x":23,"y":-2,"cMask":[]},{"x":42,"y":-2,"cMask":[]},{"x":23,"y":0,"cMask":[]},{"x":42,"y":0,"cMask":[]},{"x":23,"y":2,"cMask":[]},{"x":42,"y":2,"cMask":[]},{"x":-52,"y":27,"cMask":[]},{"x":-27,"y":-33,"cMask":[]},{"x":9,"y":27,"cMask":[]},{"x":18,"y":-33,"cMask":[]},{"x":-44.5,"y":27,"cMask":[]},{"x":-19.5,"y":-33,"cMask":[]},{"x":-54,"y":27,"cMask":[]},{"x":-29,"y":-33,"cMask":[]},{"x":-42.5,"y":27,"cMask":[]},{"x":-17.5,"y":-33,"cMask":[]},{"x":-35,"y":27,"cMask":[]},{"x":-10,"y":-33,"cMask":[]},{"x":-33,"y":27,"cMask":[]},{"x":-8,"y":-33,"cMask":[]},{"x":-31,"y":27,"cMask":[]},{"x":-6,"y":-33,"cMask":[]},{"x":-29,"y":27,"cMask":[]},{"x":-4,"y":-33,"cMask":[]},{"x":-27,"y":27,"cMask":[]},{"x":-2,"y":-33,"cMask":[]},{"x":3,"y":27,"cMask":[]},{"x":-2,"y":-33,"cMask":[]},{"x":1,"y":27,"cMask":[]},{"x":-4,"y":-33,"cMask":[]},{"x":-1,"y":27,"cMask":[]},{"x":-6,"y":-33,"cMask":[]},{"x":-3,"y":27,"cMask":[]},{"x":-8,"y":-33,"cMask":[]},{"x":-5,"y":27,"cMask":[]},{"x":-10,"y":-33,"cMask":[]},{"x":-23,"y":16,"cMask":[]},{"x":-7,"y":16,"cMask":[]},{"x":-23,"y":14,"cMask":[]},{"x":-7,"y":14,"cMask":[]},{"x":-23,"y":12,"cMask":[]},{"x":-7,"y":12,"cMask":[]},{"x":-23,"y":10,"cMask":[]},{"x":-7,"y":10,"cMask":[]},{"x":-23,"y":8,"cMask":[]},{"x":-7,"y":8,"cMask":[]},{"x":11,"y":27,"cMask":[]},{"x":20,"y":-33,"cMask":[]},{"x":13,"y":27,"cMask":[]},{"x":22,"y":-33,"cMask":[]},{"x":15,"y":27,"cMask":[]},{"x":24,"y":-33,"cMask":[]},{"x":17,"y":27,"cMask":[]},{"x":26,"y":-33,"cMask":[]},{"x":17,"y":-32,"cMask":[]},{"x":47,"y":-32,"cMask":[]},{"x":17,"y":-30,"cMask":[]},{"x":47,"y":-30,"cMask":[]},{"x":17,"y":-28,"cMask":[]},{"x":47,"y":-28,"cMask":[]},{"x":17,"y":-26,"cMask":[]},{"x":47,"y":-26,"cMask":[]},{"x":17,"y":-24,"cMask":[]},{"x":47,"y":-24,"cMask":[]},{"x":21,"y":-9,"cMask":[]},{"x":40,"y":-9,"cMask":[]},{"x":21,"y":-7,"cMask":[]},{"x":40,"y":-7,"cMask":[]},{"x":21,"y":-5,"cMask":[]},{"x":40,"y":-5,"cMask":[]},{"x":21,"y":-3,"cMask":[]},{"x":40,"y":-3,"cMask":[]},{"x":21,"y":-1,"cMask":[]},{"x":40,"y":-1,"cMask":[]},{"x":0,"y":-318,"cMask":[]},{"x":0,"y":-80,"cMask":[]},{"x":0,"y":318,"cMask":[]},{"x":0,"y":80,"cMask":[]}],"segments":[{"v0":0,"v1":1,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":3,"v1":2,"bias":-10,"bCoef":0.1,"curve":35,"curveF":3.1715948023632126,"cMask":["ball"],"color":"717F98"},{"v0":4,"v1":5,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":6,"v1":7,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":9,"v1":8,"bias":-10,"bCoef":0.1,"curve":35,"curveF":3.1715948023632126,"cMask":["ball"],"color":"717F98"},{"v0":10,"v1":11,"bias":10,"bCoef":0.1,"cMask":["ball"],"color":"717F98"},{"v0":12,"v1":13,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":14,"v1":15,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":16,"v1":17,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":18,"v1":19,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":20,"v1":21,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":22,"v1":23,"bias":10,"cMask":["ball"],"color":"717F98"},{"v0":24,"v1":25,"cMask":[],"color":"3B424F"},{"v0":26,"v1":27,"cMask":[],"color":"3B424F"},{"v0":28,"v1":29,"cMask":[],"color":"161C26"},{"v0":30,"v1":31,"cMask":[],"color":"161C26"},{"v0":33,"v1":32,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":32,"v1":33,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":35,"v1":34,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":34,"v1":35,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":37,"v1":36,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":36,"v1":37,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":39,"v1":38,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":38,"v1":39,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":40,"v1":41,"curve":89.99999999999999,"curveF":1.0000000000000002,"cMask":[],"color":"161C26"},{"v0":42,"v1":43,"curve":89.99999999999999,"curveF":1.0000000000000002,"cMask":[],"color":"161C26"},{"v0":44,"v1":45,"cMask":[],"color":"161C26"},{"v0":46,"v1":47,"cMask":[],"color":"161C26"},{"v0":48,"v1":49,"cMask":[],"color":"161C26"},{"v0":50,"v1":51,"cMask":[],"color":"161C26"},{"v0":52,"v1":53,"cMask":[],"color":"161C26"},{"v0":54,"v1":55,"cMask":[],"color":"161C26"},{"v0":56,"v1":57,"bCoef":0.1,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"v0":58,"v1":59,"bCoef":0.1,"vis":false,"cMask":["red","blue"],"cGroup":["redKO","blueKO"]},{"v0":57,"v1":58,"bCoef":0.1,"curve":180,"curveF":6.123233995736766e-17,"vis":false,"cMask":["red","blue"],"cGroup":["redKO"]},{"v0":58,"v1":57,"bCoef":0.1,"curve":180,"curveF":6.123233995736766e-17,"vis":false,"cMask":["red","blue"],"cGroup":["blueKO"]},{"v0":60,"v1":61,"cMask":[],"color":"9101D"},{"v0":62,"v1":63,"cMask":[],"color":"9101D"},{"v0":64,"v1":65,"cMask":[],"color":"9101D"},{"v0":66,"v1":67,"cMask":[],"color":"9101D"},{"v0":68,"v1":69,"cMask":[],"color":"9101D"},{"v0":70,"v1":71,"cMask":[],"color":"9101D"},{"v0":72,"v1":73,"cMask":[],"color":"9101D"},{"v0":74,"v1":75,"cMask":[],"color":"9101D"},{"v0":76,"v1":77,"cMask":[],"color":"9101D"},{"v0":78,"v1":79,"cMask":[],"color":"9101D"},{"v0":80,"v1":81,"cMask":[],"color":"9101D"},{"v0":82,"v1":83,"cMask":[],"color":"9101D"},{"v0":84,"v1":85,"cMask":[],"color":"9101D"},{"v0":86,"v1":87,"cMask":[],"color":"9101D"},{"v0":88,"v1":89,"cMask":[],"color":"9101D"},{"v0":90,"v1":91,"cMask":[],"color":"9101D"},{"v0":92,"v1":93,"cMask":[],"color":"9101D"},{"v0":94,"v1":95,"cMask":[],"color":"9101D"},{"v0":96,"v1":97,"cMask":[],"color":"9101D"},{"v0":98,"v1":99,"cMask":[],"color":"9101D"},{"v0":100,"v1":101,"cMask":[],"color":"9101D"},{"v0":102,"v1":103,"cMask":[],"color":"9101D"},{"v0":104,"v1":105,"cMask":[],"color":"9101D"},{"v0":106,"v1":107,"cMask":[],"color":"9101D"},{"v0":108,"v1":109,"cMask":[],"color":"9101D"},{"v0":110,"v1":111,"cMask":[],"color":"9101D"},{"v0":112,"v1":113,"cMask":[],"color":"9101D"},{"v0":114,"v1":115,"cMask":[],"color":"9101D"},{"v0":116,"v1":117,"cMask":[],"color":"9101D"},{"v0":118,"v1":119,"cMask":[],"color":"9101D"},{"v0":120,"v1":121,"cMask":[],"color":"9101D"},{"v0":122,"v1":123,"cMask":[],"color":"9101D"},{"v0":124,"v1":125,"cMask":[],"color":"9101D"},{"v0":126,"v1":127,"cMask":[],"color":"9101D"},{"v0":128,"v1":129,"cMask":[],"color":"333945"},{"v0":130,"v1":131,"cMask":[],"color":"333945"},{"v0":132,"v1":133,"cMask":[],"color":"333945"},{"v0":134,"v1":135,"cMask":[],"color":"333945"},{"v0":136,"v1":137,"cMask":[],"color":"333945"},{"v0":138,"v1":139,"cMask":[],"color":"333945"},{"v0":140,"v1":141,"cMask":[],"color":"333945"},{"v0":142,"v1":143,"cMask":[],"color":"333945"},{"v0":144,"v1":145,"cMask":[],"color":"333945"},{"v0":146,"v1":147,"cMask":[],"color":"333945"},{"v0":148,"v1":149,"cMask":[],"color":"333945"},{"v0":150,"v1":151,"cMask":[],"color":"333945"},{"v0":152,"v1":153,"cMask":[],"color":"333945"},{"v0":154,"v1":155,"cMask":[],"color":"333945"},{"v0":156,"v1":157,"cMask":[],"color":"333945"},{"v0":158,"v1":159,"cMask":[],"color":"333945"},{"v0":160,"v1":161,"cMask":[],"color":"333945"},{"v0":162,"v1":163,"cMask":[],"color":"333945"},{"v0":164,"v1":165,"cMask":[],"color":"333945"},{"v0":166,"v1":167,"cMask":[],"color":"333945"},{"v0":168,"v1":169,"cMask":[],"color":"333945"},{"v0":170,"v1":171,"cMask":[],"color":"333945"},{"v0":172,"v1":173,"cMask":[],"color":"333945"},{"v0":174,"v1":175,"cMask":[],"color":"333945"},{"v0":176,"v1":177,"cMask":[],"color":"333945"},{"v0":178,"v1":179,"cMask":[],"color":"333945"},{"v0":180,"v1":181,"cMask":[],"color":"333945"},{"v0":182,"v1":183,"cMask":[],"color":"333945"},{"v0":184,"v1":185,"cMask":[],"color":"333945"},{"v0":186,"v1":187,"cMask":[],"color":"333945"},{"v0":188,"v1":189,"cMask":[],"color":"333945"},{"v0":190,"v1":191,"cMask":[],"color":"333945"},{"v0":192,"v1":193,"cMask":[],"color":"333945"},{"v0":194,"v1":195,"cMask":[],"color":"333945"},{"v0":196,"v1":197,"cMask":[],"color":"161C26"},{"v0":198,"v1":199,"cMask":[],"color":"161C26"},{"v0":199,"v1":197,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"},{"v0":197,"v1":199,"curve":180,"curveF":6.123233995736766e-17,"cMask":[],"color":"161C26"}],"planes":[{"normal":[0,1],"dist":-350},{"normal":[0,-1],"dist":-350},{"normal":[1,0],"dist":-810},{"normal":[-1,0],"dist":-810},{"normal":[-1,0],"dist":-360,"bCoef":0,"cMask":["c1"]},{"normal":[1,0],"dist":-360,"bCoef":0,"cMask":["c0"]}],"goals":[{"p0":[-708.3,-85],"p1":[-708.3,85],"team":"red"},{"p0":[708.3,85],"p1":[708.3,-85],"team":"blue"}],"discs":[{"radius":5.8,"bCoef":0.412,"invMass":1.5,"color":"FFA500","cGroup":["ball","kick","score"]},{"pos":[-700,85],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[-700,-85],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[700,85],"radius":5.4,"invMass":0,"color":"3B424F"},{"pos":[700,-85],"radius":5.4,"invMass":0,"color":"3B424F"}],"playerPhysics":{"bCoef":0,"acceleration":0.11,"kickingAcceleration":0.083,"kickStrength":4.545},"ballPhysics":"disc0","spawnDistance":366.5}';
+
+var defMode = false;
+
+let redLine = -400;
+let blueLine = 400;
+let maxDefenders = 3;
+let redDefenders = [];
+let blueDefenders = [];
+let attackers = [[], []];
+
+function handleDef() {
+    let oldDefenders = [JSON.stringify(redDefenders.map((p) => p.id)), JSON.stringify(blueDefenders.map((p) => p.id))];
+    redDefenders = redDefenders.filter(p => room.getPlayer(p.id) !== null && room.getPlayer(p.id).team == 1);
+    blueDefenders = blueDefenders.filter(p => room.getPlayer(p.id) !== null && room.getPlayer(p.id).team == 2);
+    if (oldDefenders[0] != JSON.stringify(redDefenders.map((p) => p.id)) && redDefenders.length < maxDefenders) {
+        for (let j = 0; j < attackers[0].length; j++) {
+            room.setPlayerDiscProperties(attackers[0][j].id, { cGroup: room.CollisionFlags.red });
+        }
+    }
+    if (oldDefenders[1] != JSON.stringify(blueDefenders.map((p) => p.id)) && blueDefenders.length < maxDefenders) {
+        for (let j = 0; j < attackers[1].length; j++) {
+            room.setPlayerDiscProperties(attackers[1][j].id, { cGroup: room.CollisionFlags.blue });
+        }
+    }
+    let arr = [[], []];
+    for (let i = 0; i < teamRed.length; i++) {
+        if (teamRed[i].position !== null && teamRed[i].position.x <= redLine + 15 - 0.01) {
+            if (redDefenders.find(a => a.id == teamRed[i].id) === undefined) {
+                arr[0].push(teamRed[i]);
+            }
+        }
+        else {
+            if (redDefenders.find(a => a.id == teamRed[i].id) !== undefined) {
+                redDefenders = redDefenders.filter(a => a.id !== teamRed[i].id);
+                if (redDefenders.length < maxDefenders) {
+                    for (let j = 0; j < attackers[0].length; j++) {
+                        room.setPlayerDiscProperties(attackers[0][j].id, { cGroup: room.CollisionFlags.red });
+                    }
+                }
+            }
+        }
+    }
+    arr[0].sort((a, b) => a.position.x - b.position.x);
+    for (let i = 0; i < arr[0].length; i++) {
+        if (redDefenders.length < maxDefenders) {
+            redDefenders.push(arr[0][i]);
+            if (redDefenders.length === maxDefenders) {
+                attackers[0] = teamRed.filter(a => !redDefenders.map(b => b.id).includes(a.id));
+                attackers[0].forEach(a => {
+                    room.setPlayerDiscProperties(a.id, { cGroup: room.CollisionFlags.red | room.CollisionFlags.c0 });
+                });
+                break;
+            }
+        }
+    }
+    for (let i = 0; i < teamBlue.length; i++) {
+        if (teamBlue[i].position !== null && teamBlue[i].position.x >= blueLine - 15 + 0.01) {
+            if (blueDefenders.find(a => a.id == teamBlue[i].id) === undefined) {
+                arr[1].push(teamBlue[i]);
+            }
+        }
+        else {
+            if (blueDefenders.find(a => a.id == teamBlue[i].id) !== undefined) {
+                blueDefenders = blueDefenders.filter(a => a.id !== teamBlue[i].id);
+                if (blueDefenders.length < maxDefenders) {
+                    for (let j = 0; j < attackers[1].length; j++) {
+                        room.setPlayerDiscProperties(attackers[1][j].id, { cGroup: room.CollisionFlags.blue });
+                    }
+                }
+            }
+        }
+    }
+    arr[1].sort((a, b) => a.position.x - b.position.x);
+    for (let i = 0; i < arr[1].length; i++) {
+        if (blueDefenders.length < maxDefenders) {
+            blueDefenders.push(arr[1][i]);
+            if (blueDefenders.length === maxDefenders) {
+                attackers[1] = teamBlue.filter(a => !blueDefenders.map(b => b.id).includes(a.id));
+                attackers[1].forEach(a => {
+                    room.setPlayerDiscProperties(a.id, { cGroup: room.CollisionFlags.blue | room.CollisionFlags.c1 });
+                });
+                break;
+            }
+        }
+    }
+}
+
+const scoreLimitClassic = 3;
+const scoreLimitBig = 3;
+const timeLimitClassic = 3;
+const timeLimitBig = 4;
+
+room.setTeamsLock(true);
+room.setKickRateLimit(6, 0, 0);
+
+var roomPassword = '';
+
+var drawTimeLimit = 6;
+var teamSize = 4;
+var afkLimit = 15;
+
+class Goal {
+    constructor(time, team, striker, assist) {
+        this.time = time;
+        this.team = team;
+        this.striker = striker;
+        this.assist = assist;
+    }
+}
+
+class Game {
+    constructor() {
+        this.date = Date.now();
+        this.scores = room.getScores();
+        this.playerComp = getStartingLineups();
+        this.goals = [];
+        this.rec = room.startRecording();
+        this.touchArray = [];
+    }
+}
+
+class PlayerComposition {
+    constructor(player, auth, timeEntry, timeExit) {
+        this.player = player;
+        this.auth = auth;
+        this.timeEntry = timeEntry;
+        this.timeExit = timeExit;
+        this.inactivityTicks = 0;
+        this.GKTicks = 0;
+    }
+}
+
+class BallTouch {
+    constructor(player, time, goal, position) {
+        this.player = player;
+        this.time = time;
+        this.goal = goal;
+        this.position = position;
+    }
+}
+
+class HaxStatistics {
+    constructor(playerName = '') {
+        this.playerName = playerName;
+        this.games = 0;
+        this.wins = 0;
+        this.loses = 0;
+        this.draws = 0;
+        this.playtime = 0;
+        this.goals = 0;
+        this.assists = 0;
+        this.CS = 0;
+        this.ownGoals = 0;
+    }
+}
+
+const Team = { SPECTATORS: 0, RED: 1, BLUE: 2 };
+const State = { PLAY: 0, PAUSE: 1, STOP: 2 };
+const Role = { PLAYER: 0, VIP: 1, ADMIN: 3, OWNER: 4 };
+const HaxNotification = { NONE: 0, CHAT: 1, MENTION: 2 };
+const Situation = { STOP: 0, KICKOFF: 1, PLAY: 2, GOAL: 3 };
+
+var gameState = State.STOP;
+var playSituation = Situation.STOP;
+var goldenGoal = false;
+
+var playersAll = [];
+var players = [];
+var teamRed = [];
+var teamBlue = [];
+var teamSpec = [];
+
+var teamRedStats = [];
+var teamBlueStats = [];
+
+var banList = [];
+
+var logsUsuarios = new Map();
+var ListaBaneados = new Map();
+var ListaMuteados = new Map();
+
+var possession = [0, 0];
+var actionZoneHalf = [0, 0];
+var lastWinner = Team.SPECTATORS;
+var streak = [0, 0];
+
+var authArray = [];
+var listaAdmin = [
+    "nQXnYuPcRo1YhbsL7uNXhL0rusRDbzSH7eTWTk8XO74"
+];
+
+var listaVip = [
+   // "auth jugador https://haxball.com/playerauth",
+];
+
+var listaOwner = [
+    // "auth jugador para owner"
+    "lsUOyOQWBG_pX3KxcD7aOvjDBbMr-aiTUiuR2L2mvjI",
+    "klVco0SUFCJWwKz3tbypgMxPIRv8_GTmNotl_LAqByM"
+];
+
+function getRole(player) {
+    const authDelJugador = authArray[player.id] ? authArray[player.id][0] : null;
+
+    const Owner = listaOwner.includes(authDelJugador);
+    const Admin = listaAdmin.some((a) => a[0] === authDelJugador);
+    const Vip = listaVip.some((a) => a[0] === authDelJugador);
+
+    if (Owner) {
+        return Role.OWNER;
+    } else if (Admin) {
+        return Role.ADMIN;
+    } else if (Vip) {
+        return Role.VIP;
+    } else {
+        return Role.PLAYER;
+    }
+}
+
+var lastTouches = Array(2).fill(null);
+var lastTeamTouched;
+
+var speedCoefficient = 100 / (5 * (0.99 ** 60 + 1));
+var ballSpeed = 0;
+var triggerDistance = 20.81;
+
+var anuncioColor = 0xD6AE5F;
+var infoColor = 0xf5e758;
+var msgColor = 0x44cbf3;
+var redColor = 0xDB3232;
+var blueColor = 0x7395DF;
+var errorColor = 0xa22525;
+var successColor = 0x55C84D;
+
+var MensajesPrivados = new Set();
+
+var checkTimeVariable = false;
+var endGameVariable = false;
+var cancelGameVariable = false;
+
+var chooseMode = false;
+var timeOutCap;
+var capLeft = false;
+var redCaptainChoice = '';
+var blueCaptainChoice = '';
+var chooseTime = 18;
+
+var AFKSet = new Set();
+var AFKMinSet = new Set();
+var AFKCooldownSet = new Set();
+var minAFKDuration = 0;
+var maxAFKDuration = 30;
+var AFKCooldown = 3;
+
+var removingPlayers = false;
+var insertingPlayers = false;
+
+var stopTimeout;
+var startTimeout;
+var unpauseTimeout;
+var removingTimeout;
+var insertingTimeout;
+
+function loadMap(map, scoreLim, timeLim) {
+    if (map == aloneMap) {
+        room.setCustomStadium(aloneMap);
+    } else if (map == classicMap) {
+        (classicMap != '') ? room.setCustomStadium(classicMap) : room.setDefaultStadium("Classic");
+    } else if (map == bigMap) {
+        (bigMap != '.') ? room.setCustomStadium(bigMap) : room.setDefaultStadium("Big");
+    } else {
+        room.setCustomStadium(map);
+    }
+    room.setScoreLimit(scoreLim);
+    room.setTimeLimit(timeLim);
+}
+
+var game = new Game();
+
+if (typeof String.prototype.replaceAll != 'function') {
+    String.prototype.replaceAll = function (search, replacement) {
+        var target = this;
+        return target.split(search).join(replacement);
+    };
+}
+
+function getDate() {
+    let d = new Date();
+    return d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+function pointDistance(p1, p2) {
+    return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+}
+
+function getHoursStats(time) {
+    return Math.floor(time / 3600);
+}
+
+function getMinutesGame(time) {
+    var t = Math.floor(time / 60);
+    return `${Math.floor(t / 10)}${Math.floor(t % 10)}`;
+}
+
+function getMinutesReport(time) {
+    return Math.floor(Math.round(time) / 60);
+}
+
+function getMinutesEmbed(time) {
+    var t = Math.floor(Math.round(time) / 60);
+    return `${Math.floor(t / 10)}${Math.floor(t % 10)}`;
+}
+
+function getMinutesStats(time) {
+    return Math.floor(time / 60) - getHoursStats(time) * 60;
+}
+
+function getSecondsGame(time) {
+    var t = Math.floor(time - Math.floor(time / 60) * 60);
+    return `${Math.floor(t / 10)}${Math.floor(t % 10)}`;
+}
+
+function getSecondsReport(time) {
+    var t = Math.round(time);
+    return Math.floor(t - getMinutesReport(t) * 60);
+}
+
+function getSecondsEmbed(time) {
+    var t = Math.round(time);
+    var t2 = Math.floor(t - Math.floor(t / 60) * 60);
+    return `${Math.floor(t2 / 10)}${Math.floor(t2 % 10)}`;
+}
+
+function getTimeGame(time) {
+    return `[${getMinutesGame(time)}:${getSecondsGame(time)}]`;
+}
+
+function getTimeEmbed(time) {
+    return `[${getMinutesEmbed(time)}:${getSecondsEmbed(time)}]`;
+}
+
+function getTimeStats(time) {
+    if (getHoursStats(time) > 0) {
+        return `${getHoursStats(time)}h${getMinutesStats(time)}m`;
+    } else {
+        return `${getMinutesStats(time)}m`;
+    }
+}
+
+function getGoalGame() {
+    return game.scores.red + game.scores.blue;
+}
+
+function findFirstNumberCharString(str) {
+    let str_number = str[str.search(/[0-9]/g)];
+    return str_number === undefined ? "0" : str_number;
+}
+
+function getIdReport() {
+    var d = new Date();
+    return `${d.getFullYear() % 100}${d.getMonth() < 9 ? '0' : ''}${d.getMonth() + 1}${d.getDate() < 10 ? '0' : ''}${d.getDate()}${d.getHours() < 10 ? '0' : ''}${d.getHours()}${d.getMinutes() < 10 ? '0' : ''}${d.getMinutes()}${d.getSeconds() < 10 ? '0' : ''}${d.getSeconds()}${findFirstNumberCharString("FEF Af")}`;
+}
+
+function getRecordingName(game) {
+    let d = new Date();
+    let redCap = game.playerComp[0][0] != undefined ? game.playerComp[0][0].player.name : 'Red';
+    let blueCap = game.playerComp[1][0] != undefined ? game.playerComp[1][0].player.name : 'Blue';
+    let day = d.getDate() < 10 ? '0' + d.getDate() : d.getDate();
+    let month = d.getMonth() < 10 ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1);
+    let year = d.getFullYear() % 100 < 10 ? '0' + (d.getFullYear() % 100) : (d.getFullYear() % 100);
+    let hour = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
+    let minute = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+    return `${day}-${month}-${year}-${hour}h${minute}-${redCap}vs${blueCap}.hbr2`;
+}
+
+function getPlayerComp(player) {
+    if (player == null || player.id == 0) return null;
+    var comp = game.playerComp;
+    var index = comp[0].findIndex((c) => c.auth == authArray[player.id][0]);
+    if (index != -1) return comp[0][index];
+    index = comp[1].findIndex((c) => c.auth == authArray[player.id][0]);
+    if (index != -1) return comp[1][index];
+    return null;
+}
+
+function getTeamArray(team, includeAFK = true) {
+    if (team == Team.RED) return teamRed;
+    if (team == Team.BLUE) return teamBlue;
+    if (includeAFK) {
+        return playersAll.filter((p) => p.team === Team.SPECTATORS);
+    }
+    return teamSpec;
+}
+
+function checkGoalKickTouch(array, index, goal) {
+    if (array != null && array.length >= index + 1) {
+        var obj = array[index];
+        if (obj != null && obj.goal != null && obj.goal == goal) return obj;
+    }
+    return null;
+}
+
+function topButton() {
+    if (teamSpec.length > 0) {
+        if (teamRed.length == teamBlue.length && teamSpec.length > 1) {
+            room.setPlayerTeam(teamSpec[0].id, Team.RED);
+            room.setPlayerTeam(teamSpec[1].id, Team.BLUE);
+        } else if (teamRed.length < teamBlue.length)
+            room.setPlayerTeam(teamSpec[0].id, Team.RED);
+        else room.setPlayerTeam(teamSpec[0].id, Team.BLUE);
+    }
+}
+
+function randomButton() {
+    if (teamSpec.length > 0) {
+        if (teamRed.length == teamBlue.length && teamSpec.length > 1) {
+            var r = getRandomInt(teamSpec.length);
+            room.setPlayerTeam(teamSpec[r].id, Team.RED);
+            teamSpec = teamSpec.filter((spec) => spec.id != teamSpec[r].id);
+            room.setPlayerTeam(teamSpec[getRandomInt(teamSpec.length)].id, Team.BLUE);
+        } else if (teamRed.length < teamBlue.length)
+            room.setPlayerTeam(teamSpec[getRandomInt(teamSpec.length)].id, Team.RED);
+        else
+            room.setPlayerTeam(teamSpec[getRandomInt(teamSpec.length)].id, Team.BLUE);
+    }
+}
+
+function blueToSpecButton() {
+    clearTimeout(removingTimeout);
+    removingPlayers = true;
+    removingTimeout = setTimeout(() => {
+        removingPlayers = false;
+    }, 100);
+    for (var i = 0; i < teamBlue.length; i++) {
+        room.setPlayerTeam(teamBlue[teamBlue.length - 1 - i].id, Team.SPECTATORS);
+    }
+}
+
+function redToSpecButton() {
+    clearTimeout(removingTimeout);
+    removingPlayers = true;
+    removingTimeout = setTimeout(() => {
+        removingPlayers = false;
+    }, 100);
+    for (var i = 0; i < teamRed.length; i++) {
+        room.setPlayerTeam(teamRed[teamRed.length - 1 - i].id, Team.SPECTATORS);
+    }
+}
+
+function resetButton() {
+    clearTimeout(removingTimeout);
+    removingPlayers = true;
+    removingTimeout = setTimeout(() => {
+        removingPlayers = false;
+    }, 100);
+    for (let i = 0; i < Math.max(teamRed.length, teamBlue.length); i++) {
+        if (Math.max(teamRed.length, teamBlue.length) - teamRed.length - i > 0)
+            room.setPlayerTeam(teamBlue[teamBlue.length - 1 - i].id, Team.SPECTATORS);
+        else if (Math.max(teamRed.length, teamBlue.length) - teamBlue.length - i > 0)
+            room.setPlayerTeam(teamRed[teamRed.length - 1 - i].id, Team.SPECTATORS);
+        else break;
+    }
+    for (let i = 0; i < Math.min(teamRed.length, teamBlue.length); i++) {
+        room.setPlayerTeam(
+            teamBlue[Math.min(teamRed.length, teamBlue.length) - 1 - i].id,
+            Team.SPECTATORS
+        );
+        room.setPlayerTeam(
+            teamRed[Math.min(teamRed.length, teamBlue.length) - 1 - i].id,
+            Team.SPECTATORS
+        );
+    }
+}
+
+function swapButton() {
+    clearTimeout(removingTimeout);
+    removingPlayers = true;
+    removingTimeout = setTimeout(() => {
+        removingPlayers = false;
+    }, 100);
+    for (let player of teamBlue) {
+        room.setPlayerTeam(player.id, Team.RED);
+    }
+    for (let player of teamRed) {
+        room.setPlayerTeam(player.id, Team.BLUE);
+    }
+}
+
+function checkTime() {
+    const scores = room.getScores();
+    if (game != undefined) game.scores = scores;
+    if (Math.abs(scores.time - scores.timeLimit) <= 0.01 && scores.timeLimit != 0 && playSituation == Situation.PLAY) {
+        if (scores.red != scores.blue) {
+            if (!checkTimeVariable) {
+                checkTimeVariable = true;
+                setTimeout(() => {
+                    checkTimeVariable = false;
+                }, 3000);
+                stopTimeout = setTimeout(() => {
+                    scores.red > scores.blue ? endGame(Team.RED) : endGame(Team.BLUE);
+                    room.stopGame();
+                }, 4000);
+            }
+            return;
+        }
+        if (drawTimeLimit != 0) {
+            goldenGoal = true;
+            room.sendAnnouncement(
+                'Gol gana, recuerda que el tiempo limite es de 10 minutos.',
+                null,
+                anuncioColor,
+                'bold',
+                2
+            );
+        }
+    }
+    if (Math.abs(scores.time - drawTimeLimit * 60 - scores.timeLimit) <= 0.01 && scores.timeLimit != 0) {
+        if (!checkTimeVariable) {
+            checkTimeVariable = true;
+            setTimeout(() => {
+                checkTimeVariable = false;
+            }, 10);
+            endGame(Team.SPECTATORS);
+            room.stopGame();
+            goldenGoal = false;
+        }
+    }
+}
+
+function instantRestart() {
+    room.stopGame();
+    startTimeout = setTimeout(() => {
+        room.startGame();
+    }, 10);
+}
+
+function resumeGame() {
+    startTimeout = setTimeout(() => {
+        room.startGame();
+    }, 1000);
+    setTimeout(() => {
+        room.pauseGame(false);
+    }, 500);
+}
+
+function endGame(winner) { 
+    players.length >= 2 * teamSize - 1 ? activateChooseMode() : null;
+    lastWinner = winner;
+    endGameVariable = true;
+    if (winner == Team.RED) {
+        streak[1] = 0; // Restablece la racha del equipo azul
+        streak[0]++;    // Incrementa la racha del equipo rojo
+        room.sendAnnouncement(`El equipo rojo es el ganador con racha de ${streak[0]}.`, null, redColor, 'bold', 0);
+    } else if (winner == Team.BLUE) {
+        streak[0] = 0;   // Restablece la racha del equipo rojo
+        streak[1]++;   // Incrementa la racha del equipo azul
+        room.sendAnnouncement(`El equipo azul es el ganador con racha de ${streak[1]}`, null, blueColor, 'bold', 0);
+    } else {
+        streak[0] = 0;
+        streak[1] = 0;
+        room.sendAnnouncement("Empate sin rachas.", null, 0x939090, 'bold', 0);
+    }
+    const reportID = getIdReport(); // Obtén el ID del informe
+    room.sendAnnouncement(`🔵 ID del informe: ${reportID}`, null, 0x7289da, 'bold', 0);
+    updateStats();
+}
+
+function activateChooseMode() {
+    chooseMode = true;
+}
+
+function deactivateChooseMode() {
+    chooseMode = false;
+    clearTimeout(timeOutCap);
+    redCaptainChoice = '';
+    blueCaptainChoice = '';
+}
+
+function getSpecList(player) {
+    if (!player || !Array.isArray(teamSpec)) return;
+
+    let cstm = teamSpec.map((spec, index) => `${spec.name}[${index + 1}]`).join(', ');
+    cstm += '.';
+
+    room.sendAnnouncement(
+        cstm,
+        player.id,
+        infoColor,
+        'bold',
+        1
+    );
+}
+
+function choosePlayer() {
+    if (chooseMode) {
+        clearTimeout(timeOutCap);
+
+        let captain;
+        if (teamRed.length <= teamBlue.length && teamRed.length > 0) {
+            captain = teamRed[0];
+        } else if (teamBlue.length < teamRed.length && teamBlue.length > 0) {
+            captain = teamBlue[0];
+        }
+
+        if (captain) {
+            room.sendAnnouncement(
+                "Escoge a un jugador de la lista o escribe 'random', 'bot', 'top' en el chat.",
+                captain.id,
+                infoColor,
+                'bold',
+                HaxNotification.MENTION
+            );
+
+            timeOutCap = setTimeout(() => {
+                room.sendAnnouncement(
+                    `⛔ Apresurate elegiendo o seras expulsado.`,
+                    captain.id,
+                    errorColor,
+                    'bold',
+                    HaxNotification.MENTION
+                );
+
+                timeOutCap = setTimeout(() => {
+                    room.kickPlayer(
+                        captain.id,
+                        "Afk?",
+                        false
+                    );
+                }, chooseTime * 1000);
+            }, chooseTime * 1000);
+        }
+
+        if (teamRed.length > 0 && teamBlue.length > 0) {
+            const chosenCaptain = teamRed.length <= teamBlue.length ? teamRed[0] : teamBlue[0];
+            getSpecList(chosenCaptain);
+        }
+    }
+}
+
+function chooseModeFunction(player, message) {
+    var msgArray = message.split(/ +/);
+    if (player.id == teamRed[0].id || player.id == teamBlue[0].id) {
+        if (teamRed.length <= teamBlue.length && player.id == teamRed[0].id) {
+            if (['top', 'auto'].includes(msgArray[0].toLowerCase())) {
+                room.setPlayerTeam(teamSpec[0].id, Team.RED);
+                redCaptainChoice = 'top';
+                clearTimeout(timeOutCap);
+                room.sendAnnouncement(
+                    `${player.name} escogio a los primeros.`,
+                    null,
+                    0xDAC372,
+                    'bold',
+                    1
+                );
+            } else if (['random', 'rand'].includes(msgArray[0].toLowerCase())) {
+                var r = getRandomInt(teamSpec.length);
+                room.setPlayerTeam(teamSpec[r].id, Team.RED);
+                redCaptainChoice = 'random';
+                clearTimeout(timeOutCap);
+                room.sendAnnouncement(
+                    `🔁 ${player.name} escogio random.`,
+                    null,
+                    0xDAC372,
+                    'bold',
+                    1
+                );
+            } else if (['bottom', 'bot'].includes(msgArray[0].toLowerCase())) {
+                room.setPlayerTeam(teamSpec[teamSpec.length - 1].id, Team.RED);
+                redCaptainChoice = 'bottom';
+                clearTimeout(timeOutCap);
+                room.sendAnnouncement(
+                    `${player.name} escogio a los ultimos.`,
+                    null,
+                    0xDAC372,
+                    'bold',
+                    1
+                );
+            } else if (!Number.isNaN(Number.parseInt(msgArray[0]))) {
+                if (Number.parseInt(msgArray[0]) > teamSpec.length || Number.parseInt(msgArray[0]) < 1) {
+                    room.sendAnnouncement(
+                        `⛔ Ese número no es valido, verifique la lista denuevo.`,
+                        player.id,
+                        errorColor,
+                        'bold',
+                        1
+                    );
+                } else {
+                    room.setPlayerTeam(
+                        teamSpec[Number.parseInt(msgArray[0]) - 1].id,
+                        Team.RED
+                    );
+                    room.sendAnnouncement(
+                        `${player.name} escogio a ${teamSpec[Number.parseInt(msgArray[0]) - 1].name}.`,
+                        null,
+                        0xDAC372,
+                        'bold',
+                        HaxNotification.CHAT
+                    );
+                }
+            } else return false;
+            return true;
+        }
+        if (teamRed.length > teamBlue.length && player.id == teamBlue[0].id) {
+            if (['top', 'auto'].includes(msgArray[0].toLowerCase())) {
+                room.setPlayerTeam(teamSpec[0].id, Team.BLUE);
+                blueCaptainChoice = 'top';
+                clearTimeout(timeOutCap);
+                room.sendAnnouncement(
+                    `${player.name} escogio a los primeros.`,
+                    null,
+                    0xDAC372,
+                    'bold',
+                    HaxNotification.CHAT
+                );
+            } else if (['random', 'rand'].includes(msgArray[0].toLowerCase())) {
+                room.setPlayerTeam(
+                    teamSpec[getRandomInt(teamSpec.length)].id,
+                    Team.BLUE
+                );
+                blueCaptainChoice = 'random';
+                clearTimeout(timeOutCap);
+                room.sendAnnouncement(
+                    `🔁 ${player.name} escogio random.`,
+                    null,
+                    0xDAC372,
+                    'bold',
+                    HaxNotification.CHAT
+                );
+            } else if (['bottom', 'bot'].includes(msgArray[0].toLowerCase())) {
+                room.setPlayerTeam(teamSpec[teamSpec.length - 1].id, Team.BLUE);
+                blueCaptainChoice = 'bottom';
+                clearTimeout(timeOutCap);
+                room.sendAnnouncement(
+                    `${player.name} escogio a los ultimos.`,
+                    null,
+                    0xDAC372,
+                    'bold',
+                    HaxNotification.CHAT
+                );
+            } else if (!Number.isNaN(Number.parseInt(msgArray[0]))) {
+                if (Number.parseInt(msgArray[0]) > teamSpec.length || Number.parseInt(msgArray[0]) < 1) {
+                    room.sendAnnouncement(
+                        `⛔ Ese número no es valido, verifique la lista denuevo.`,
+                        player.id,
+                        errorColor,
+                        'bold',
+                        HaxNotification.CHAT
+                    );
+                } else {
+                    room.setPlayerTeam(
+                        teamSpec[Number.parseInt(msgArray[0]) - 1].id,
+                        Team.BLUE
+                    );
+                    room.sendAnnouncement(
+                        `${player.name} escogio a ${teamSpec[Number.parseInt(msgArray[0]) - 1].name}.`,
+                        null,
+                        0xDAC372,
+                        'bold',
+                        HaxNotification.CHAT
+                    );
+                }
+            } else return false;
+            return true;
+        }
+    }
+}
+
+function checkCaptainLeave(player) {
+    if (
+        (teamRed.findIndex((red) => red.id == player.id) == 0 && chooseMode && teamRed.length <= teamBlue.length) ||
+        (teamBlue.findIndex((blue) => blue.id == player.id) == 0 && chooseMode && teamBlue.length < teamRed.length)
+    ) {
+        choosePlayer();
+        capLeft = true;
+        setTimeout(() => {
+            capLeft = false;
+        }, 10);
+    }
+}
+
+function updateTeams() {
+    playersAll = room.getPlayerList();
+    players = playersAll.filter((p) => !AFKSet.has(p.id));
+    teamRed = players.filter((p) => p.team == Team.RED);
+    teamBlue = players.filter((p) => p.team == Team.BLUE);
+    teamSpec = players.filter((p) => p.team == Team.SPECTATORS);
+}
+
+function handleActivityPlayer(player) {
+    let pComp = getPlayerComp(player);
+    if (pComp != null) {
+        pComp.inactivityTicks++;
+        if (pComp.inactivityTicks == 60 * ((2 / 3) * afkLimit)) {
+            room.sendAnnouncement(
+                `Afk ${player.name} si no te mueves seras expulsado`,
+                player.id,
+                errorColor,
+                'bold',
+                2
+            );
+            return;
+        }
+        if (pComp.inactivityTicks >= 60 * afkLimit) {
+            pComp.inactivityTicks = 0;
+            if (game.scores.time <= afkLimit - 0.5) {
+                setTimeout(() => {
+                    !chooseMode ? instantRestart() : room.stopGame();
+                }, 10);
+            }
+            room.kickPlayer(player.id, 'Ausente en el partido.', false);
+        }
+    }
+}
+
+function handleActivityPlayerTeamChange(changedPlayer) {
+    if (changedPlayer.team == Team.SPECTATORS) {
+        let pComp = getPlayerComp(changedPlayer);
+        if (pComp != null) pComp.inactivityTicks = 0;
+    }
+}
+
+function handleActivityStop() {
+    for (let player of players) {
+        let pComp = getPlayerComp(player);
+        if (pComp != null) pComp.inactivityTicks = 0;
+    }
+}
+
+function handleActivity() {
+    if (gameState === State.PLAY && players.length > 1) {
+        for (let player of teamRed) {
+            handleActivityPlayer(player);
+        }
+        for (let player of teamBlue) {
+            handleActivityPlayer(player);
+        }
+    }
+}
+
+function getStartingLineups() {
+    var compositions = [[], []];
+    for (let player of teamRed) {
+        compositions[0].push(
+            new PlayerComposition(player, authArray[player.id][0], [0], [])
+        );
+    }
+    for (let player of teamBlue) {
+        compositions[1].push(
+            new PlayerComposition(player, authArray[player.id][0], [0], [])
+        );
+    }
+    return compositions;
+}
+
+function handleLineupChangeTeamChange(changedPlayer) {
+    if (gameState != State.STOP) {
+        var playerLineup;
+        if (changedPlayer.team == Team.RED) {
+            var redLineupAuth = game.playerComp[0].map((p) => p.auth);
+            var ind = redLineupAuth.findIndex((auth) => auth == authArray[changedPlayer.id][0]);
+            if (ind != -1) {
+                playerLineup = game.playerComp[0][ind];
+                if (playerLineup.timeExit.includes(game.scores.time)) {
+                    playerLineup.timeExit = playerLineup.timeExit.filter((t) => t != game.scores.time);
+                } else {
+                    playerLineup.timeEntry.push(game.scores.time);
+                }
+            } else {
+                playerLineup = new PlayerComposition(
+                    changedPlayer,
+                    authArray[changedPlayer.id][0],
+                    [game.scores.time],
+                    []
+                );
+                game.playerComp[0].push(playerLineup);
+            }
+        } else if (changedPlayer.team == Team.BLUE) {
+            var blueLineupAuth = game.playerComp[1].map((p) => p.auth);
+            var ind = blueLineupAuth.findIndex((auth) => auth == authArray[changedPlayer.id][0]);
+            if (ind != -1) {
+                playerLineup = game.playerComp[1][ind];
+                if (playerLineup.timeExit.includes(game.scores.time)) {
+                    playerLineup.timeExit = playerLineup.timeExit.filter((t) => t != game.scores.time);
+                } else {
+                    playerLineup.timeEntry.push(game.scores.time);
+                }
+            } else {
+                playerLineup = new PlayerComposition(
+                    changedPlayer,
+                    authArray[changedPlayer.id][0],
+                    [game.scores.time],
+                    []
+                );
+                game.playerComp[1].push(playerLineup);
+            }
+        }
+        if (teamRed.some((r) => r.id == changedPlayer.id)) {
+            var redLineupAuth = game.playerComp[0].map((p) => p.auth);
+            var ind = redLineupAuth.findIndex((auth) => auth == authArray[changedPlayer.id][0]);
+            playerLineup = game.playerComp[0][ind];
+            if (playerLineup.timeEntry.includes(game.scores.time)) {
+                if (game.scores.time == 0) {
+                    game.playerComp[0].splice(ind, 1);
+                } else {
+                    playerLineup.timeEntry = playerLineup.timeEntry.filter((t) => t != game.scores.time);
+                }
+            } else {
+                playerLineup.timeExit.push(game.scores.time);
+            }
+        } else if (teamBlue.some((r) => r.id == changedPlayer.id)) {
+            var blueLineupAuth = game.playerComp[1].map((p) => p.auth);
+            var ind = blueLineupAuth.findIndex((auth) => auth == authArray[changedPlayer.id][0]);
+            playerLineup = game.playerComp[1][ind];
+            if (playerLineup.timeEntry.includes(game.scores.time)) {
+                if (game.scores.time == 0) {
+                    game.playerComp[1].splice(ind, 1);
+                } else {
+                    playerLineup.timeEntry = playerLineup.timeEntry.filter((t) => t != game.scores.time);
+                }
+            } else {
+                playerLineup.timeExit.push(game.scores.time);
+            }
+        }
+    }
+}
+
+function handleLineupChangeLeave(player) {
+    if (playSituation != Situation.STOP) {
+        if (player.team == Team.RED) {
+            var redLineupAuth = game.playerComp[0].map((p) => p.auth);
+            var ind = redLineupAuth.findIndex((auth) => auth == authArray[player.id][0]);
+            var playerLineup = game.playerComp[0][ind];
+            if (playerLineup.timeEntry.includes(game.scores.time)) {
+                if (game.scores.time == 0) {
+                    game.playerComp[0].splice(ind, 1);
+                } else {
+                    playerLineup.timeEntry = playerLineup.timeEntry.filter((t) => t != game.scores.time);
+                }
+            } else {
+                playerLineup.timeExit.push(game.scores.time);
+            }
+        } else if (player.team == Team.BLUE) {
+            var blueLineupAuth = game.playerComp[1].map((p) => p.auth);
+            var ind = blueLineupAuth.findIndex((auth) => auth == authArray[player.id][0]);
+            var playerLineup = game.playerComp[1][ind];
+            if (playerLineup.timeEntry.includes(game.scores.time)) {
+                if (game.scores.time == 0) {
+                    game.playerComp[1].splice(ind, 1);
+                } else {
+                    playerLineup.timeEntry = playerLineup.timeEntry.filter((t) => t != game.scores.time);
+                }
+            } else {
+                playerLineup.timeExit.push(game.scores.time);
+            }
+        }
+    }
+}
+
+function balanceTeams() {
+    if (!chooseMode) {
+        if (players.length == 0) {
+            room.stopGame();
+            defMode = false;
+        } else if (players.length == 1 && teamRed.length == 0) {
+            instantRestart();
+                loadMap(aloneMap, 0, 0);
+            defMode = false;
+            room.setPlayerTeam(players[0].id, Team.RED);
+        } else if (Math.abs(teamRed.length - teamBlue.length) == teamSpec.length && teamSpec.length > 0) {
+            const n = Math.abs(teamRed.length - teamBlue.length);
+            if (players.length == 2) {
+                instantRestart();
+                loadMap(classicMap, scoreLimitClassic, timeLimitClassic);
+                defMode = false;
+            }
+            if (teamRed.length > teamBlue.length) {
+                for (var i = 0; i < n; i++) {
+                    room.setPlayerTeam(teamSpec[i].id, Team.BLUE);
+                }
+            } else {
+                for (var i = 0; i < n; i++) {
+                    room.setPlayerTeam(teamSpec[i].id, Team.RED);
+                }
+            }
+        } else if (Math.abs(teamRed.length - teamBlue.length) > teamSpec.length) {
+            const n = Math.abs(teamRed.length - teamBlue.length);
+            if (players.length == 1) {
+                instantRestart();
+                loadMap(aloneMap, 0, 0);
+                defMode = false;
+                room.setPlayerTeam(players[0].id, Team.RED);
+                return;
+            } else if (teamSize > 2 && players.length == 5) {
+                instantRestart();
+                loadMap(classicMap, scoreLimitClassic, timeLimitClassic);
+                defMode = false;
+            }
+            if (players.length == teamSize * 2 - 1) {
+                teamRedStats = [];
+                teamBlueStats = [];
+            }
+            if (teamRed.length > teamBlue.length) {
+                for (var i = 0; i < n; i++) {
+                    room.setPlayerTeam(
+                        teamRed[teamRed.length - 1 - i].id,
+                        Team.SPECTATORS
+                    );
+                }
+            } else {
+                for (var i = 0; i < n; i++) {
+                    room.setPlayerTeam(
+                        teamBlue[teamBlue.length - 1 - i].id,
+                        Team.SPECTATORS
+                    );
+                }
+            }
+        } else if (Math.abs(teamRed.length - teamBlue.length) < teamSpec.length && teamRed.length != teamBlue.length) {
+            room.pauseGame(true);
+            activateChooseMode();
+            choosePlayer();
+        } else if (teamSpec.length >= 2 && teamRed.length == teamBlue.length && teamRed.length < teamSize) {
+            if (teamRed.length == 2) {
+                instantRestart();
+                loadMap(bigMap, scoreLimitBig, timeLimitBig);
+                defMode = true;
+            }
+            topButton();
+        }
+    }
+}
+
+function handlePlayersJoin() {
+    updateTeams();
+    if (chooseMode) {
+        if (players.length == 6) {
+            loadMap(bigMap, scoreLimitBig, timeLimitBig);
+            defMode = true;
+        }
+        if (teamRed.length > 0 && teamBlue.length > 0) {
+            getSpecList(teamRed.length <= teamBlue.length ? teamRed[0] : teamBlue[0]);
+        }
+    }
+    balanceTeams();
+}
+
+function handlePlayersLeave() {
+    updateTeams();
+    if (room.getScores() != null) {
+        var scores = room.getScores();
+        if (
+            players.length >= 2 * teamSize &&
+            scores.time >= (5 / 6) * game.scores.timeLimit &&
+            teamRed.length != teamBlue.length
+        ) {
+            if (teamRed.length < teamBlue.length) {
+                if (scores.blue - scores.red == 2) {
+                    endGame(Team.BLUE);
+                    room.sendAnnouncement(
+                        "Ragequit detectado.",
+                        null,
+                        errorColor,
+                        'bold',
+                        1
+                    )
+                    setTimeout(() => {
+                        room.stopGame();
+                    }, 100);
+                    return;
+                }
+            } else {
+                if (scores.red - scores.blue == 2) {
+                    endGame(Team.RED);
+                    room.sendAnnouncement(
+                        "Ragequit detectado.",
+                        null,
+                        errorColor,
+                        'bold',
+                        1
+                    )
+                    setTimeout(() => {
+                        room.stopGame();
+                    }, 100);
+                    return;
+                }
+            }
+        }
+    }
+    if (chooseMode) {
+        if (players.length == 5) {
+            loadMap(classicMap, scoreLimitClassic, timeLimitClassic);
+            defMode = false;
+        }
+        if (teamRed.length == 0 || teamBlue.length == 0) {
+            teamRed.length == 0
+                ? room.setPlayerTeam(teamSpec[0].id, Team.RED)
+                : room.setPlayerTeam(teamSpec[0].id, Team.BLUE);
+            return;
+        }
+        if (Math.abs(teamRed.length - teamBlue.length) == teamSpec.length) {
+            deactivateChooseMode();
+            resumeGame();
+            var b = teamSpec.length;
+            if (teamRed.length > teamBlue.length) {
+                for (var i = 0; i < b; i++) {
+                    setTimeout(() => {
+                        room.setPlayerTeam(teamSpec[0].id, Team.BLUE);
+                    }, 5 * i);
+                }
+            } else {
+                for (var i = 0; i < b; i++) {
+                    setTimeout(() => {
+                        room.setPlayerTeam(teamSpec[0].id, Team.RED);
+                    }, 5 * i);
+                }
+            }
+            return;
+        }
+        if (streak[0] == 0 || streak[1] == 0 && room.getScores() == null) {
+            if (Math.abs(teamRed.length - teamBlue.length) == 2) {
+                teamRed.length > teamBlue.length
+                    ? room.setPlayerTeam(
+                        teamRed[teamRed.length - 1].id,
+                        Team.SPECTATORS
+                    )
+                    : room.setPlayerTeam(
+                        teamBlue[teamBlue.length - 1].id,
+                        Team.SPECTATORS
+                    );
+            }
+        }
+        if (teamRed.length == teamBlue.length && teamSpec.length < 2) {
+            deactivateChooseMode();
+            resumeGame();
+            return;
+        }
+        capLeft
+            ? choosePlayer()
+            : getSpecList(teamRed.length <= teamBlue.length ? teamRed[0] : teamBlue[0]);
+    }
+    balanceTeams();
+}
+
+function handlePlayersTeamChange(byPlayer) {
+    if (chooseMode && !removingPlayers && byPlayer == null) {
+        if (Math.abs(teamRed.length - teamBlue.length) == teamSpec.length) {
+            deactivateChooseMode();
+            resumeGame();
+            var b = teamSpec.length;
+            if (teamRed.length > teamBlue.length) {
+                for (var i = 0; i < b; i++) {
+                    clearTimeout(insertingTimeout);
+                    insertingPlayers = true;
+                    setTimeout(() => {
+                        room.setPlayerTeam(teamSpec[0].id, Team.BLUE);
+                    }, 5 * i);
+                }
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 5 * b);
+            } else {
+                for (var i = 0; i < b; i++) {
+                    clearTimeout(insertingTimeout);
+                    insertingPlayers = true;
+                    setTimeout(() => {
+                        room.setPlayerTeam(teamSpec[0].id, Team.RED);
+                    }, 5 * i);
+                }
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 5 * b);
+            }
+            return;
+        } else if (
+            (teamRed.length == teamSize && teamBlue.length == teamSize) ||
+            (teamRed.length == teamBlue.length && teamSpec.length < 2)
+        ) {
+            deactivateChooseMode();
+            resumeGame();
+        } else if (teamRed.length <= teamBlue.length && redCaptainChoice != '') {
+            if (redCaptainChoice == 'top') {
+                room.setPlayerTeam(teamSpec[0].id, Team.RED);
+            } else if (redCaptainChoice == 'random') {
+                var r = getRandomInt(teamSpec.length);
+                room.setPlayerTeam(teamSpec[r].id, Team.RED);
+            } else {
+                room.setPlayerTeam(teamSpec[teamSpec.length - 1].id, Team.RED);
+            }
+            return;
+        } else if (teamBlue.length < teamRed.length && blueCaptainChoice != '') {
+            if (blueCaptainChoice == 'top') {
+                room.setPlayerTeam(teamSpec[0].id, Team.BLUE);
+            } else if (blueCaptainChoice == 'random') {
+                var r = getRandomInt(teamSpec.length);
+                room.setPlayerTeam(teamSpec[r].id, Team.BLUE);
+            } else {
+                room.setPlayerTeam(teamSpec[teamSpec.length - 1].id, Team.BLUE);
+            }
+            return;
+        } else {
+            choosePlayer();
+        }
+    }
+}
+
+function handlePlayersStop(byPlayer) {
+    if (byPlayer == null && endGameVariable) {
+        if (chooseMode) {
+            if (players.length == 2 * teamSize) {
+                chooseMode = false;
+                resetButton();
+                for (var i = 0; i < teamSize; i++) {
+                    clearTimeout(insertingTimeout);
+                    insertingPlayers = true;
+                    setTimeout(() => {
+                        randomButton();
+                    }, 200 * i);
+                }
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 200 * teamSize);
+                startTimeout = setTimeout(() => {
+                    room.startGame();
+                }, 2000);
+            } else {
+                if (lastWinner == Team.RED) {
+                    blueToSpecButton();
+                } else if (lastWinner == Team.BLUE) {
+                    redToSpecButton();
+                    setTimeout(() => {
+                        swapButton();
+                    }, 10);
+                } else {
+                    resetButton();
+                }
+                clearTimeout(insertingTimeout);
+                insertingPlayers = true;
+                setTimeout(() => {
+                    topButton();
+                }, 300);
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 300);
+            }
+        } else {
+            if (players.length == 2) {
+                if (lastWinner == Team.BLUE) {
+                    swapButton();
+                }
+                startTimeout = setTimeout(() => {
+                    room.startGame();
+                }, 2000);
+            } else if (players.length == 3 || players.length >= 2 * teamSize + 1) {
+                if (lastWinner == Team.RED) {
+                    blueToSpecButton();
+                } else {
+                    redToSpecButton();
+                    setTimeout(() => {
+                        swapButton();
+                    }, 5);
+                }
+                clearTimeout(insertingTimeout);
+                insertingPlayers = true;
+                setTimeout(() => {
+                    topButton();
+                }, 200);
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 300);
+                startTimeout = setTimeout(() => {
+                    room.startGame();
+                }, 2000);
+            } else if (players.length == 4) {
+                resetButton();
+                clearTimeout(insertingTimeout);
+                insertingPlayers = true;
+                setTimeout(() => {
+                    randomButton();
+                    setTimeout(() => {
+                        randomButton();
+                    }, 500);
+                }, 500);
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 2000);
+                startTimeout = setTimeout(() => {
+                    room.startGame();
+                }, 2000);
+            } else if (players.length == 5 || players.length >= 2 * teamSize + 1) {
+                if (lastWinner == Team.RED) {
+                    blueToSpecButton();
+                } else {
+                    redToSpecButton();
+                    setTimeout(() => {
+                        swapButton();
+                    }, 5);
+                }
+                clearTimeout(insertingTimeout);
+                insertingPlayers = true;
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 200);
+                setTimeout(() => {
+                    topButton();
+                }, 200);
+                activateChooseMode();
+            } else if (players.length == 6) {
+                resetButton();
+                clearTimeout(insertingTimeout);
+                insertingPlayers = true;
+                insertingTimeout = setTimeout(() => {
+                    insertingPlayers = false;
+                }, 1500);
+                setTimeout(() => {
+                    randomButton();
+                    setTimeout(() => {
+                        randomButton();
+                        setTimeout(() => {
+                            randomButton();
+                        }, 500);
+                    }, 500);
+                }, 500);
+                startTimeout = setTimeout(() => {
+                    room.startGame();
+                }, 2000);
+            }
+        }
+    }
+}
+
+function handleGKTeam(team) {
+    if (team == Team.SPECTATORS) {
+        return null;
+    }
+    let teamArray = team == Team.RED ? teamRed : teamBlue;
+    let playerGK = teamArray.reduce((prev, current) => {
+        if (team == Team.RED) {
+            return (prev?.position.x < current.position.x) ? prev : current
+        } else {
+            return (prev?.position.x > current.position.x) ? prev : current
+        }
+    }, null);
+    let playerCompGK = getPlayerComp(playerGK);
+    return playerCompGK;
+}
+
+function handleGK() {
+    let redGK = handleGKTeam(Team.RED);
+    if (redGK != null) {
+        redGK.GKTicks++;
+    }
+    let blueGK = handleGKTeam(Team.BLUE);
+    if (blueGK != null) {
+        blueGK.GKTicks++;
+    }
+}
+
+function getGK(team) {
+    if (team == Team.SPECTATORS) {
+        return null;
+    }
+    let teamArray = team == Team.RED ? game.playerComp[0] : game.playerComp[1];
+    let playerGK = teamArray.reduce((prev, current) => {
+        return (prev?.GKTicks > current.GKTicks) ? prev : current
+    }, null);
+    return playerGK;
+}
+
+function getCS(scores) {
+    let playersNameCS = [];
+    let redGK = getGK(Team.RED);
+    let blueGK = getGK(Team.BLUE);
+    if (redGK != null && scores.blue == 0) {
+        playersNameCS.push(redGK.player.name);
+    }
+    if (blueGK != null && scores.red == 0) {
+        playersNameCS.push(blueGK.player.name);
+    }
+    return playersNameCS;
+}
+
+function getLastTouchOfTheBall() {
+    const ballPosition = room.getBallPosition();
+    updateTeams();
+    let playerArray = [];
+    for (let player of players) {
+        if (player.position != null) {
+            var distanceToBall = pointDistance(player.position, ballPosition);
+            if (distanceToBall < triggerDistance) {
+                if (playSituation == Situation.KICKOFF) playSituation = Situation.PLAY;
+                playerArray.push([player, distanceToBall]);
+            }
+        }
+    }
+    if (playerArray.length != 0) {
+        let playerTouch = playerArray.sort((a, b) => a[1] - b[1])[0][0];
+        if (lastTeamTouched == playerTouch.team || lastTeamTouched == Team.SPECTATORS) {
+            if (lastTouches[0] == null || (lastTouches[0] != null && lastTouches[0].player.id != playerTouch.id)) {
+                game.touchArray.push(
+                    new BallTouch(
+                        playerTouch,
+                        game.scores.time,
+                        getGoalGame(),
+                        ballPosition
+                    )
+                );
+                lastTouches[0] = checkGoalKickTouch(
+                    game.touchArray,
+                    game.touchArray.length - 1,
+                    getGoalGame()
+                );
+                lastTouches[1] = checkGoalKickTouch(
+                    game.touchArray,
+                    game.touchArray.length - 2,
+                    getGoalGame()
+                );
+            }
+        }
+        lastTeamTouched = playerTouch.team;
+    }
+}
+
+function getBallSpeed() {
+    var ballProp = room.getDiscProperties(0);
+    return Math.sqrt(ballProp.xspeed ** 2 + ballProp.yspeed ** 2) * speedCoefficient;
+}
+
+function getGameStats() {
+    if (playSituation == Situation.PLAY && gameState == State.PLAY) {
+        lastTeamTouched == Team.RED ? possession[0]++ : possession[1]++;
+        var ballPosition = room.getBallPosition();
+        ballPosition.x < 0 ? actionZoneHalf[0]++ : actionZoneHalf[1]++;
+        handleGK();
+    }
+}
+
+function updateStats() {
+    if (
+        players.length >= 2 * teamSize &&
+        (
+            game.scores.time >= (5 / 6) * game.scores.timeLimit ||
+            game.scores.red == game.scores.scoreLimit ||
+            game.scores.blue == game.scores.scoreLimit
+        ) &&
+        teamRedStats.length >= teamSize && teamBlueStats.length >= teamSize
+    ) {
+        for (let player of teamRedStats) {
+            var pComp = getPlayerComp(player);
+            if (localStorage.getItem(authArray[player.id][0])) {
+                var stats = JSON.parse(localStorage.getItem(authArray[player.id][0]));
+            } else {
+                var stats = new HaxStatistics(player.name);
+            }
+            stats.games++;
+            lastWinner == Team.RED ? stats.wins++ : lastWinner == Team.BLUE ? stats.loses++ : stats.empates++;
+            stats.CS += getCSPlayer(pComp);
+            stats.playtime += getGametimePlayer(pComp);
+
+            localStorage.setItem(authArray[player.id][0], JSON.stringify(stats));
+        }
+        for (let player of teamBlueStats) {
+            var pComp = getPlayerComp(player);
+            if (localStorage.getItem(authArray[player.id][0])) {
+                var stats = JSON.parse(localStorage.getItem(authArray[player.id][0]));
+            } else {
+                var stats = new HaxStatistics(player.name);
+            }
+            stats.games++;
+            lastWinner == Team.BLUE ? stats.wins++ : lastWinner == Team.RED ? stats.loses++ : stats.empates++;
+            stats.CS += getCSPlayer(pComp);
+            stats.playtime += getGametimePlayer(pComp);
+
+            localStorage.setItem(authArray[player.id][0], JSON.stringify(stats));
+        }
+    }
+}
+
+function getGametimePlayer(pComp) {
+    if (pComp == null) return 0;
+    var timePlayer = 0;
+    for (let j = 0; j < pComp.timeEntry.length; j++) {
+        if (pComp.timeExit.length < j + 1) {
+            timePlayer += game.scores.time - pComp.timeEntry[j];
+        } else {
+            timePlayer += pComp.timeExit[j] - pComp.timeEntry[j];
+        }
+    }
+    return Math.floor(timePlayer);
+}
+
+function getGKPlayer(pComp) {
+    if (pComp == null) return 0;
+    let GKRed = getGK(Team.RED);
+    if (pComp.auth == GKRed?.auth) {
+        return Team.RED;
+    }
+    let GKBlue = getGK(Team.BLUE);
+    if (pComp.auth == GKBlue?.auth) {
+        return Team.BLUE;
+    }
+    return Team.SPECTATORS;
+}
+
+function getCSPlayer(pComp) {
+    if (pComp == null || game.scores == null) return 0;
+    if (getGKPlayer(pComp) == Team.RED && game.scores.blue == 0) {
+        return 1;
+    } else if (getGKPlayer(pComp) == Team.BLUE && game.scores.red == 0) {
+        return 1;
+    }
+    return 0;
+}
+
+function actionReportCountTeam(goals, team) {
+    let playerActionSummaryTeam = [];
+    let indexTeam = team == Team.RED ? 0 : 1;
+    let indexOtherTeam = team == Team.RED ? 1 : 0;
+    for (let goal of goals[indexTeam]) {
+        if (goal[0] != null) {
+            if (playerActionSummaryTeam.find(a => a[0].id == goal[0].id)) {
+                let index = playerActionSummaryTeam.findIndex(a => a[0].id == goal[0].id);
+                playerActionSummaryTeam[index][1]++;
+            } else {
+                playerActionSummaryTeam.push([goal[0], 1, 0, 0]);
+            }
+            if (goal[1] != null) {
+                if (playerActionSummaryTeam.find(a => a[0].id == goal[1].id)) {
+                    let index = playerActionSummaryTeam.findIndex(a => a[0].id == goal[1].id);
+                    playerActionSummaryTeam[index][2]++;
+                } else {
+                    playerActionSummaryTeam.push([goal[1], 0, 1, 0]);
+                }
+            }
+        }
+    }
+    if (goals[indexOtherTeam].length == 0) {
+        let playerCS = getGK(team)?.player;
+        if (playerCS != null) {
+            if (playerActionSummaryTeam.find(a => a[0].id == playerCS.id)) {
+                let index = playerActionSummaryTeam.findIndex(a => a[0].id == playerCS.id);
+                playerActionSummaryTeam[index][3]++;
+            } else {
+                playerActionSummaryTeam.push([playerCS, 0, 0, 1]);
+            }
+        }
+    }
+
+    playerActionSummaryTeam.sort((a, b) => (a[1] + a[2] + a[3]) - (b[1] + b[2] + b[3]));
+    return playerActionSummaryTeam;
+}
+
+function fetchGametimeReport(game) {
+    var fieldGametimeRed = {
+        name: '🔴  *EQUIPO ROJO*',
+        value: '',
+        inline: true,
+    };
+    var fieldGametimeBlue = {
+        name: '🔵  *EQUIPO AZUL*',
+        value: '',
+        inline: true,
+    };
+    var redTeamPlayers = game.playerComp[0].map((p) => p.player);
+    var blueTeamPlayers = game.playerComp[1].map((p) => p.player);
+
+    for (let player of redTeamPlayers) {
+        fieldGametimeRed.value += `- ${player.name}\n`;
+    }
+    fieldGametimeRed.value += `\n${blueTeamPlayers.length - redTeamPlayers.length > 0 ? '\n'.repeat(blueTeamPlayers.length - redTeamPlayers.length) : ''}`;
+
+    for (let player of blueTeamPlayers) {
+        fieldGametimeBlue.value += `- ${player.name}\n`;
+    }
+    fieldGametimeBlue.value += `\n${redTeamPlayers.length - blueTeamPlayers.length > 0 ? '\n'.repeat(redTeamPlayers.length - blueTeamPlayers.length) : ''}`;
+
+    return [fieldGametimeRed, fieldGametimeBlue];
+}
+
+function fetchActionsSummaryReport(game) {
+    var fieldReportRed = {
+        name: '🔴  *EQUIPO ROJO*',
+        value: '📊 __**Estadisticas:**__\n\n',
+        inline: true,
+    };
+    var fieldReportBlue = {
+        name: '🔵  *EQUIPO AZUL*',
+        value: '📊 __**Estadisticas:**__\n\n',
+        inline: true,
+    };
+    var goals = [[], []];
+    for (let i = 0; i < game.goals.length; i++) {
+        goals[game.goals[i].team - 1].push([game.goals[i].striker, game.goals[i].assist]);
+    }
+    var redActions = actionReportCountTeam(goals, Team.RED);
+    if (redActions.length > 0) {
+        for (let act of redActions) {
+            fieldReportRed.value += `- ${act[0].team != Team.RED ? '[OG] ' : ''}${act[0].name}:` +
+                `${act[1] > 0 ? ` ${act[1]}G` : ''}` +
+                `${act[2] > 0 ? ` ${act[2]}A` : ''}` +
+                `${act[3] > 0 ? ` ${act[3]}CS` : ''}\n`;
+        }
+    }
+    var blueActions = actionReportCountTeam(goals, Team.BLUE);
+    if (blueActions.length > 0) {
+        for (let act of blueActions) {
+            fieldReportBlue.value += `- ${act[0].team != Team.BLUE ? '[OG] ' : ''}${act[0].name}:` +
+                `${act[1] > 0 ? ` ${act[1]}G` : ''}` +
+                `${act[2] > 0 ? ` ${act[2]}A` : ''}` +
+                `${act[3] > 0 ? ` ${act[3]}CS` : ''}\n`;
+        }
+    }
+
+    fieldReportRed.value += `\n${blueActions.length - redActions.length > 0 ? '\n'.repeat(blueActions.length - redActions.length) : ''
+        }`;
+
+    fieldReportBlue.value += `\n${redActions.length - blueActions.length > 0 ? '\n'.repeat(redActions.length - blueActions.length) : ''
+        }`;
+
+    return [fieldReportRed, fieldReportBlue];
+}
+
+function fetchSummaryEmbed(game) {
+    var fetchEndgame = [fetchGametimeReport, fetchActionsSummaryReport];
+    var logChannel = gameWebhook;
+    var fields = [{
+        name: '🔴  *EQUIPO ROJO*',
+        value: ' \n\n',
+        inline: true,
+    },
+    {
+        name: '🔵  *EQUIPO AZUL*',
+        value: ' \n\n',
+        inline: true,
+    },
+    ];
+    for (let i = 0; i < fetchEndgame.length; i++) {
+        var fieldsReport = fetchEndgame[i](game);
+        fields[0].value += fieldsReport[0].value + '\n\n';
+        fields[1].value += fieldsReport[1].value + '\n\n';
+    }
+    fields[0].value = fields[0].value.substring(0, fields[0].value.length - 2);
+    fields[1].value = fields[1].value.substring(0, fields[1].value.length - 2);
+
+    var possR = possession[0] / (possession[0] + possession[1]);
+    var possB = 1 - possR;
+    var possRString = (possR * 100).toFixed(0).toString();
+    var possBString = (possB * 100).toFixed(0).toString();
+    var win = (game.scores.red > game.scores.blue) * 1 + (game.scores.blue > game.scores.red) * 2;
+    var team = streak[0] > streak[1] ? Team.RED : Team.BLUE;
+
+    let actionRedPct = Math.round((actionZoneHalf[0] / (actionZoneHalf[0] + actionZoneHalf[1])) * 100);
+    let actionBluePct = 100 - actionRedPct;
+
+    const reportID = getIdReport(); // Obtén el ID del informe
+    var objectBodyWebhook = {
+        embeds: [{
+            title: `📝 RESULTADOS DE LA PARTIDA #${reportID}`,
+            description: `**${getTimeEmbed(game.scores.time)}** ` +
+                (win == 1 ? '**Equipo rojo** ' : 'Equipo rojo ') + game.scores.red +
+                ' - ' +
+                game.scores.blue + (win == 2 ? ' **Equipo azul**' : ' Equipo azul') +
+                '\n```c\n Posesión: ' + possRString + '% - ' + possBString + '%\n Racha de victorias: ' + team + '\n Zona de juego: ' + "🔴" + actionRedPct.toFixed(0) + "% - " + actionBluePct.toFixed(0) + "%" + "🔵```",
+            color: 0x2b2d31,
+            fields: fields,
+            footer: {
+                text: 'Bot by J4zeJ'
+            },
+        },]
+    };
+    if (logChannel != '') {
+        // Enviar el contexto del partido primero
+        fetch(logChannel, {
+            method: 'POST',
+            body: JSON.stringify(objectBodyWebhook),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then((res) => {
+            // Después de enviar el contexto del partido, enviar la grabación
+            let form = new FormData();
+            form.append("file", new File([game.rec], "Partida_Futsal AF_AF_4v4.hbr2", { type: "text/plain" }));
+
+            fetch(logChannel, {
+                method: 'POST',
+                body: form,
+            }).then((res) => res);
+        });
+    }
+}
+
+function sendban(kickedPlayer, byPlayer, reason) {
+    var request = new XMLHttpRequest();
+    request.open("POST", banWebhook);
+    request.setRequestHeader('Content-type', 'application/json');
+
+    if (reason == "") {
+        reason = " - ";
+    }
+
+    var formattedMessage = {
+        embeds: [{
+            author: {
+                name: 'Informe de sanción',
+                url: roomLink,
+            },
+            description: `Razón / Duración: ${reason}\n🔴 Admin: ${(byPlayer && byPlayer.name) ? byPlayer.name : 'FEF Af Bot'}`,
+            color: 0x2b2d31,
+            fields: [
+                {
+                    name: "*Detalles del jugador baneado*",
+                    value: `\n- Nombre del jugador: ${kickedPlayer.name}\n- **Auth**: ${authArray[kickedPlayer.id][0]}\n- **Conn**: ${authArray[kickedPlayer.id][1]}`,
+                    inline: true,
+                },
+            ],
+            footer: {
+                text: 'Bot by J4zeJ',
+            },
+        }],
+    };
+
+    request.send(JSON.stringify(formattedMessage));
+};
+
+function sendconsole(message) {
+    var request = new XMLHttpRequest();
+    request.open("POST", roomWebhook);
+    request.setRequestHeader('Content-type', 'application/json');
+
+    var params = {
+        content: message,
+        allowed_mentions: {
+            parse: []
+        },
+    };
+
+    request.send(JSON.stringify(params));
+}
+
+room.onPlayerJoin = function (player) {
+    authArray[player.id] = [player.auth, player.conn];
+
+    if (ListaBaneados.has(player.conn)) {
+        room.kickPlayer(player.id, `Estas baneado temporalmente, si crees que a sido un error comunicate con nosotros ${discord}`, false);
+        return;
+    }
+
+    // Actualiza o agrega el usuario en logsUsuarios
+    logsUsuarios.set(player.auth, { name: player.name, conn: player.conn, id: player.id });
+    setTimeout(() => {
+        sendconsole(`- **${player.name}** se ha conectado a la sala:\n - **Conn**: ${player.conn}\n - **Auth**: ${player.auth}`);
+    }, 100000);
+
+    const numPlayers = room.getPlayerList().length;
+    if (numPlayers == 25) {
+        room.setPassword(slotspass);
+        room.sendAnnouncement("🔒 Contraseña vip activada.", null, 0x94E8DE, "bold", 1);
+    }
+
+    if (listaOwner.includes(player.auth)) {
+        room.setPlayerAdmin(player.id, true);
+        room.sendAnnouncement('', null);
+        room.sendAnnouncement(`🗣️ El owner ${player.name} entro a colocar orden a la sala.`, null, 0xDD4949, "bold", 2);
+        room.sendAnnouncement('', null);
+    } else if (listaAdmin.some((a) => a[0] === player.auth)) {
+        room.setPlayerAdmin(player.id, true);
+        room.sendAnnouncement('', null);
+        room.sendAnnouncement(`‼️ El admin ${player.name} entro a colocar orden a la sala.`, null, 0xB2DD49, "bold", 1);
+        room.sendAnnouncement('', null);
+    } else if (listaVip.includes(player.auth)) {
+        room.sendAnnouncement('', null);
+        room.sendAnnouncement(`💎 ${player.name} se ha conectado a la sala.`, null, 0x94E8DE, "bold", 0);
+        room.sendAnnouncement('', null);
+    }
+
+    setTimeout(() => {room.sendAnnouncement('🗣️‼️ Bienvenido a FEF Futsal 4v4', player.id, 0xfde93d, 'bold', HaxNotification.MENTION);}, 10000);
+    setTimeout(() => {room.sendAnnouncement('🔵 Discord: ' + discord, player.id, 0x61C6FF, 'bold', HaxNotification.MENTION);}, 20000);
+
+    updateTeams();
+    var sameAuthCheck = playersAll.filter((p) => p.id != player.id && authArray[p.id][0] == player.auth);
+    if (sameAuthCheck.length > 0) {
+        var oldPlayerArray = playersAll.filter((p) => p.id != player.id && authArray[p.id][0] == player.auth);
+        for (let oldPlayer of oldPlayerArray) {
+            var teamArrayId = getTeamArray(oldPlayer.team, true).map((p) => p.id);
+            teamArrayId.splice(teamArrayId.findIndex((id) => id == oldPlayer.id), 1, player.id);
+        
+            room.kickPlayer(oldPlayer.id, 'Ghost kick', false);
+            room.setPlayerTeam(player.id, oldPlayer.team);
+            room.setPlayerAdmin(player.id, oldPlayer.admin);
+            room.reorderPlayers(teamArrayId, true);
+        
+            if (oldPlayer.team != Team.SPECTATORS && playSituation != Situation.STOP) {
+                var discProp = room.getPlayerDiscProperties(oldPlayer.id);
+                room.setPlayerDiscProperties(player.id, discProp);
+            }
+        }
+    }
+    handlePlayersJoin();
+
+};
+
+room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
+    handleLineupChangeTeamChange(changedPlayer);
+    if (AFKSet.has(changedPlayer.id) && changedPlayer.team != Team.SPECTATORS) {
+        room.setPlayerTeam(changedPlayer.id, Team.SPECTATORS);
+        room.sendAnnouncement(
+            `${changedPlayer.name} esta AFK.`,
+            null,
+            0x888887,
+            'bold',
+            1
+        );
+        return;
+    }
+    updateTeams();
+    if (gameState != State.STOP) {
+        if (changedPlayer.team != Team.SPECTATORS && game.scores.time <= (3 / 4) * game.scores.timeLimit && Math.abs(game.scores.blue - game.scores.red) < 2) {
+            changedPlayer.team == Team.RED ? teamRedStats.push(changedPlayer) : teamBlueStats.push(changedPlayer);
+        }
+    }
+    handleActivityPlayerTeamChange(changedPlayer);
+    handlePlayersTeamChange(byPlayer);
+};
+
+room.onPlayerLeave = function (player) {
+
+    const numPlayers = room.getPlayerList().length;
+    if (numPlayers == 24) {
+        room.setPassword();
+        room.sendAnnouncement(
+            "🔓 Contraseña vip desactivada.",
+            null,
+            0x94E8DE,
+            "bold",
+            1
+        );
+    }
+
+    handleLineupChangeLeave(player);
+    checkCaptainLeave(player);
+    updateTeams();
+    handlePlayersLeave();
+};
+
+room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
+    ban == true ? banList.push([kickedPlayer.name, kickedPlayer.id]) : null;
+    if (ban == true) {
+        sendban(kickedPlayer, byPlayer, reason);
+    }
+};
+
+const changingAvatars = new Set();
+
+avatarTimeDeleySeconds = 2.5; // Segundos
+
+const avatarMappings = {
+    "q": "🤔",
+    "1": "🥅",
+    "ez": "😂",
+    "z": "😴",
+    "mb": "😭",
+    "x": "😡",
+    " ": "🤷‍♀️",
+    "xd": "😹",
+    "gg": "👑",
+    "ole": "🔥",
+    "lag": "🐷",
+    "meme": "🐸",
+    "erra": "😮"
+}
+
+function changePlayerAvatarOnMessage(player, message) {
+    let lowerCaseMessage = message.toLowerCase();
+    if (changingAvatars.has(player.id)) {
+        return;
+    }
+    if (lowerCaseMessage in avatarMappings) {
+        room.setPlayerAvatar(player.id, avatarMappings[lowerCaseMessage]);
+
+        changingAvatars.add(player.id);
+
+        setTimeout(function () {
+            room.setPlayerAvatar(player.id, null);
+            changingAvatars.delete(player.id);
+        }, avatarTimeDeleySeconds * 1000);
+    }
+}
+
+// Cooldowns
+
+var MostrarCooldown = new Set();
+var IncognitoCooldown = new Set();
+var llamarAdminCooldown = new Set();
+
+var saltarfilaCooldown = new Set();
+var BanquearCooldown = new Set();
+
+// Baneo jugador
+
+function parseDuration(durationStr) {
+    const regex = /^(\d+)(s|m|h|d|y)$/; // Regex para validar la duración
+    const match = durationStr.match(regex);
+
+    if (!match) {
+        return null; // Devuelve null si el formato es incorrecto
+    }
+
+    const amount = parseInt(match[1]); // Cantidad de tiempo
+    const unit = match[2]; // Unidad de tiempo
+
+    switch (unit) {
+        case 's':
+            return amount * 1000; // Segundos a milisegundos
+        case 'm':
+            return amount * 60 * 1000; // Minutos a milisegundos
+        case 'h':
+            return amount * 60 * 60 * 1000; // Horas a milisegundos
+        case 'd':
+            return amount * 24 * 60 * 60 * 1000; // Días a milisegundos
+        case 'y':
+            return amount * 365 * 24 * 60 * 60 * 1000; // Años a milisegundos
+        default:
+            return null;
+    }
+}
+
+var lastMessageTime = {};
+
+room.onPlayerChat = function (player, message) {
+    if (gameState !== State.STOP && player.team != Team.SPECTATORS) {
+        let pComp = getPlayerComp(player);
+        if (pComp != null) pComp.inactivityTicks = 0;
+    }
+
+    var mensajetotal = message;
+
+    // Elegir
+
+    if (chooseMode && teamRed.length * teamBlue.length != 0) {
+        var choosingMessageCheck = chooseModeFunction(player, message);
+        if (choosingMessageCheck) return false;
+    }
+
+    // Slow Mode
+
+    var currentTime = Date.now();
+
+    if (lastMessageTime[player.id] === undefined) {
+        lastMessageTime[player.id] = 0;
+    }
+
+    if (player.admin || getRole(player) === Role.VIP) {
+
+    } else {
+        if (currentTime - lastMessageTime[player.id] < 2000) {
+            return false; // Bloquea el mensaje
+        } else {
+            lastMessageTime[player.id] = currentTime;
+        }
+    }
+
+    // Emojis 
+
+    changePlayerAvatarOnMessage(player, message);
+
+    // Muteado
+
+    if (!player.admin && ListaMuteados.has(authArray[player.id][0])) {
+        room.sendAnnouncement(`Estas muteado.`, player.id, errorColor, "bold", 2);
+        return false;
+    }
+
+    message = message.split(/ +/);
+
+    // AntiLinks
+
+    const unusualChars = /[幾ꦊ겘꘺鲨栒䫨笹仧裋矰詗ꔍ牱焝緰眵㾢㵹穘ꍸ瘔骣蚢䗛㿇紇肳䄳暇ㄻ栓㠠ꥼ䪴㶾㕳潄憺㷧ꋕ涸㊍碈皦䩼꽖冨譶扤䮧ꭈ移ꢱコ饛褁㌎颟趻鏷䤒ꆍ芓曱ㇻ薔四䐀⽥ꬽ㤬ꪨꏹ仹绖岨珈幮䧢㓇饪鏜⢋浽嗏婤措礂⾻㓇蔐压⣅꺜㟣旐憓㨮䣴ꗵ䌁虉梄慖墒䥍⭿⹍瘀㓞捠ꏕ枎镂⮮❗跑迡栩瀱㾉斺鄕꾁ꯄ叁ꮋꗻ䕖井衛擬迷깟䊁䄞ꤑ訔⵹]/g;
+
+    const linkRegex = /(?:https?|ftp):\/\/[^\s/$.?#].[^\s]*[^\s\/$#?]|www\.[^\s/$.?#].[^\s]*/igm;
+
+    if (linkRegex.test(message) || unusualChars.test(message)) {
+        mensajetotal = "****";
+    }
+
+
+    // Mensaje team
+
+    if (message[0].toLowerCase() == 't') {
+        if (player.team != 0) {
+            room.getPlayerList().forEach((element) => {
+                if (element.team == player.team)
+                    room.sendAnnouncement(`[Equipo ${player.team == 1 ? "🔴" : "🔵"}] ${player.name}: ${mensajetotal.substr(2)}`, element.id, player.team == 1 ? redColor : blueColor, "bold", 1);
+            });
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    // Mensaje privado
+
+    if (message[0].substring(0, 2) === '@@') {
+        var playerTargetIndex = playersAll.findIndex(
+            (p) => p.name.replaceAll(' ', '_') == message[0].substring(2)
+        );
+        var playerTarget = playersAll[playerTargetIndex];
+        if (MensajesPrivados.has(authArray[player.id][0])) {
+            room.sendAnnouncement(
+                `⛔ No puedes mandar mensajes privados, pon !pm para poder hacerlo.`,
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        } else if (playerTargetIndex == -1) {
+            room.sendAnnouncement(
+                `⛔ No existe ese jugador, verifique que puso el nombre correctamente.`,
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        } else if (MensajesPrivados.has(authArray[playerTarget.id][0])) {
+            room.sendAnnouncement(
+                `⛔ Este jugador no acepta mensajes privados.`,
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        } else if (player.id == playerTarget.id) {
+            room.sendAnnouncement(
+                `⛔ No puedes hacerte autoPM.`,
+                player.id,
+                errorColor,
+                'bold',
+                2
+            );
+            return false;
+        } else {
+            splitSpace = mensajetotal.indexOf(' ');
+            msgToSend = mensajetotal.substr(splitSpace + 1);
+            var messageFrom = `📝 [PM con ${playerTarget.name}] ${player.name}: ${msgToSend}`
+            var messageTo = `📝 [PM con ${player.name}] ${player.name}: ${msgToSend}`
+            room.sendAnnouncement(
+                messageFrom,
+                player.id,
+                msgColor,
+                'bold',
+                2
+            );
+            room.sendAnnouncement(
+                messageTo,
+                playerTarget.id,
+                msgColor,
+                'bold',
+                2
+            );
+        }
+        return false;
+    }
+
+    // Mensaje admin
+
+    if (message[0].toLowerCase() == '&') {
+        if (player.admin) {
+            room.getPlayerList().forEach((element) => {
+                if (element.admin == player.admin)
+                    room.sendAnnouncement(`[Chat Admin] ${player.name}: ${mensajetotal.substr(2)}`, element.id, 0xF5841C, "bold", 1);
+            });
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    // Comandos
+
+    if (["!help", "!comandos", "!ayuda", "!commands"].includes(message[0].toLowerCase())) {
+        room.sendAnnouncement(`🗣️ Comandos:\n!rangos, !me, !mostrarme, !info, !pm, !racha, !tops, !afk, !dc, !llamaradmin.`, player.id, 0xc03dfd, "bold", 0);
+
+        if (getRole(player) == Role.NORMALVIP) {
+            room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 0);
+            room.sendAnnouncement(`💎 Comandos Vip:\n!saltarfila, !banquear <#id>.`, player.id, 0xc03dfd, "bold", 0);
+        }
+
+        if (player.admin) {
+            room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 0);
+            room.sendAnnouncement(`‼️ Comandos admin:\n!ban <auth/#id> <Tiempo>, !mute <auth/#id> <Tiempo>.`, player.id, 0xc03dfd, "bold", 0);
+        }
+
+        if (getRole(player) == Role.OWNER) {
+            room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 0);
+            room.sendAnnouncement(`🗣️‼️ Comandos owner:\n!ownerpss, !lock, !unlock.`, player.id, 0xc03dfd, "bold", 0);
+        }
+
+        return false;
+    } else if (["!tops"].includes(message[0].toLowerCase())) {
+        room.sendAnnouncement(`🏆 !games, !assists, !og, !cs, !goals, !loses.`, player.id, 0xc03dfd, "bold", 0);
+
+        return false;
+    } else if (["!pss"].includes(message[0].toLowerCase())) {
+
+        if (getRole(player) == Role.OWNER) {
+            room.sendAnnouncement(`⛔ ${player.name} ya tienes poderes de owner.`, player.id, errorColor, "bold", 2);
+
+            return false;
+        }
+
+        if (message[1] == contraseñaOwner) {
+            room.setPlayerAdmin(player.id, true);
+            listaOwner.push(authArray[player.id][0]);
+            room.sendAnnouncement(`${player.name} ahora tiene poderes de owner.`, null, 0xDD4949, "bold", 2);
+        }
+
+        return false;
+    } else if (["!info"].includes(message[0].toLowerCase())) {
+
+        room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 1);
+        room.sendAnnouncement(`Futsal AF 21/08/2024`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`Creado por J4zeJ y Davod`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`Auth: ${authArray[player.id][0]}`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`Conexión: ${authArray[player.id][1]}`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`Nombre: ${player.name}`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`Nivel de permisos: ${getRole(player)}`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 0);
+
+        return false;
+
+    } else if (["!pm"].includes(message[0].toLowerCase())) {
+        if (MensajesPrivados.has(authArray[player.id][0])) {
+            room.sendAnnouncement(`Ya puedes recibir mensajes privados.`, player.id, successColor, "bold", 1);
+            MensajesPrivados.delete(authArray[player.id][0]);
+        } else {
+            MensajesPrivados.add(authArray[player.id][0]);
+            room.sendAnnouncement(`Ya no puedes recibir mensajes privados.`, player.id, errorColor, "bold", 1);
+        }
+
+        return false;
+    } else if (["!racha", "!streak"].includes(message[0].toLowerCase())) {
+        const team = streak[0] > streak[1] ? Team.RED : Team.BLUE;
+        const teamColor = team === Team.RED ? 'rojo' : 'azul';
+        const teamStreak = team === Team.RED ? streak[0] : streak[1];
+
+        if (streak[0] === 0 && streak[1] === 0) {
+            room.sendAnnouncement(`⛔ Ningún equipo tiene racha de victorias.`, player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        room.sendAnnouncement(
+            `🏆 El equipo ${teamColor} tiene una racha de ${teamStreak}.`,
+            player.id,
+            team === Team.RED ? redColor : blueColor,
+            "bold",
+            1
+        );
+
+        return false;
+
+    } else if (["!donaciones"].includes(message[0].toLowerCase())) {
+
+        room.sendAnnouncement(``, player.id, 0x94E8DE, "normal", 1);
+        room.sendAnnouncement(`💎 Rango VIP 💎`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(`- !saltarfila (10 min de cooldown).`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(`- !banquear (10 min de cooldown).`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(`- Rango vip 「💎 ᴠɪᴘ」.`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(`- Rango VIP en el nuestro discord.`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(`- Puedes spamear con moderacion.`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(``, player.id, 0x94E8DE, "normal", 0);
+        // room.sendAnnouncement(``, player.id, 0xFDF319, "bold", 0);
+        room.sendAnnouncement(`💎 Rango VIP.`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement(`- Puedes conseguir nuestro rango VIP de las siguientes formas:`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`- Boosteando el servidor`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`- Siendo MVP de nuestra liga`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`- Ayudando a mejorar nuestro host`, player.id, 0xFFFFFF, "normal", 0);
+        room.sendAnnouncement(`Para mas informacion entra a nuestro discord ${discord}`, player.id, 0x7289da, "normal", 0);
+        room.sendAnnouncement(``, player.id, 0xFFFFFF, "normal", 0);
+
+        return false;
+    } else if (["!afk", "!dormir"].includes(message[0].toLowerCase())) {
+        if (player.team == Team.SPECTATORS || players.length == 1) {
+            if (AFKSet.has(player.id)) {
+                if (AFKMinSet.has(player.id)) {
+                    room.sendAnnouncement(
+                        `⛔ El cooldown es de ${minAFKDuration} minutos, no abuses del comando.`,
+                        player.id,
+                        errorColor,
+                        'bold',
+                        1
+                    );
+                } else {
+                    AFKSet.delete(player.id);
+                    room.sendAnnouncement(
+                        `${player.name} ya no esta AFK.`,
+                        null,
+                        0x888887,
+                        'bold',
+                        null
+                    );
+                    updateTeams();
+                    handlePlayersJoin();
+                }
+            } else {
+                if (AFKCooldownSet.has(player.id)) {
+                    room.sendAnnouncement(
+                        `⛔ Solo puedes ponerte AFK cada ${AFKCooldown} minutos, no abuses del comando.`,
+                        player.id,
+                        errorColor,
+                        'bold',
+                        1
+                    );
+                } else {
+                    AFKSet.add(player.id);
+                    if (!player.admin) {
+                        AFKMinSet.add(player.id);
+                        AFKCooldownSet.add(player.id);
+                        setTimeout(
+                            (id) => {
+                                AFKMinSet.delete(id);
+                            },
+                            minAFKDuration * 60 * 1000,
+                            player.id
+                        );
+                        setTimeout(
+                            (id) => {
+                                AFKSet.delete(id);
+                            },
+                            maxAFKDuration * 60 * 1000,
+                            player.id
+                        );
+                        setTimeout(
+                            (id) => {
+                                AFKCooldownSet.delete(id);
+                            },
+                            AFKCooldown * 60 * 1000,
+                            player.id
+                        );
+                    }
+                    room.setPlayerTeam(player.id, Team.SPECTATORS);
+                    room.sendAnnouncement(
+                        `${player.name} esta AFK.`,
+                        null,
+                        0x888887,
+                        'bold',
+                        null
+                    );
+                    updateTeams();
+                    handlePlayersLeave();
+                }
+            }
+        } else {
+            room.sendAnnouncement(
+                `⛔ No puedes ponerte AFK en una partida.`,
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+        }
+        return false;
+    } else if (["!afks", "!dormidos"].includes(message[0].toLowerCase())) {
+        if (AFKSet.size == 0) {
+            room.sendAnnouncement(
+                "No hay nadie en la lista AFK.",
+                player.id,
+                errorColor,
+                'bold',
+                null
+            );
+            return false;
+        }
+        var cstm = 'Lista AFK: ';
+        AFKSet.forEach((_, value) => {
+            var p = room.getPlayer(value);
+            if (p != null) cstm += p.name + `, `;
+        });
+        cstm = cstm.substring(0, cstm.length - 2) + '.';
+        room.sendAnnouncement(cstm, player.id, 0x888887, 'bold', null);
+
+        return false;
+    } else if (["!bb", "!cya", "!gn", "!acomer"].includes(message[0].toLowerCase())) {
+        var frasesbb = [
+            "Nos vemos",
+            "Adios cuidate",
+            "Gracias por estar en la sala",
+            discord,
+            "Adios",
+            "Buen provecho",
+            "Descansa bien"
+        ];
+
+        var randomIndex = Math.floor(Math.random() * frasesbb.length);
+        var frasessalir = frasesbb[randomIndex];
+        room.kickPlayer(player.id, `${frasessalir}`, false);
+    } else if (["!rangos", "!ranks"].includes(message[0].toLowerCase())) {
+        room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+        room.sendAnnouncement("Rangos por victorias", player.id, 0xEFFFFE, "normal", 1);
+        room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+        room.sendAnnouncement("⚽️ ɴᴜᴇᴠᴏ | 5 wins", player.id, 0xCC9461, "normal", 0);
+        room.sendAnnouncement("🎉 ᴀᴘʀᴇɴᴅɪᴢ | 15 wins", player.id, 0x51AEFF, "normal", 0);
+        room.sendAnnouncement("🍀 ᴊᴜᴠᴇɴɪʟ | 30 wins", player.id, 0x77FE24, "normal", 0);
+        room.sendAnnouncement("💣 ᴀᴠᴀɴᴢᴀᴅᴏ | 50 wins", player.id, 0xFF3C3C, "normal", 0);
+        room.sendAnnouncement("🍃 ᴛɪᴛᴜʟᴀʀ | 80 wins", player.id, 0x41CD7F, "normal", 0);
+        room.sendAnnouncement("⚜️ ᴘʀɪᴍᴇ | 120 wins", player.id, 0x03e5e8, "normal", 0);
+        room.sendAnnouncement("🏆 ᴄᴀᴍᴘᴇᴏ́ɴ | 150 wins", player.id, 0xFFD700, "normal", 0);
+        room.sendAnnouncement("✨ ʟᴇʏᴇɴᴅᴀ | 190 wins", player.id, 0xFA87A6, "normal", 0);
+        room.sendAnnouncement("⭐ ᴍᴀᴇsᴛʀᴏ | 250 wins", player.id, 0xE8B362, "normal", 0);
+        room.sendAnnouncement("☄️ ɪᴄᴏɴᴏ | 350 wins", player.id, 0xFF005D, "normal", 0);
+        room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+        room.sendAnnouncement("Rangos extras", player.id, 0xEFFFFE, "normal", 0);
+        room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+        room.sendAnnouncement("「🗣️ ᴏᴡɴᴇʀ」", player.id, 0xFF0000, "normal", 0);
+        room.sendAnnouncement("「‼️ ᴀᴅᴍɪɴ​​​​​」", player.id, 0xF5841C, "normal", 0);
+        room.sendAnnouncement(`「💎 ᴠɪᴘ」${player.name} | !donaciones para más información.`, player.id, 0x94E8DE, "normal", 0);
+        room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+
+        if (localStorage.getItem(authArray[player.id][0])) {
+            stats = JSON.parse(localStorage.getItem(authArray[player.id][0]));
+        } else {
+            room.sendAnnouncement(
+                `Tu rango actual es ⚽️ ɴᴜᴇᴠᴏ | ${player.name}`,
+                player.id,
+                0x929292,
+                "normal",
+            );
+            room.sendAnnouncement(`Necesitas 6 victorias para subir de rango.`, player.id, 0xFFFFFF, 'normal', 0);
+            room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+            return false;
+        }
+
+        var announcement = "";
+        var chatColor = "";
+
+        var nextRankWins = 0;
+
+        if (stats.wins > 450) {
+            announcement += "☄️ ɪᴄᴏɴᴏ |";
+            chatColor = "0xFFFFFF";
+        } else if (stats.wins > 220) {
+            announcement += "⭐ ᴍᴀᴇsᴛʀᴏ |";
+            chatColor = "0xE8B362";
+            nextRankWins = 490 - stats.wins;
+        } else if (stats.wins > 170) {
+            announcement += "✨ ʟᴇʏᴇɴᴅᴀ |";
+            chatColor = "0xFA87A6";
+            nextRankWins = 250 - stats.wins;
+        } else if (stats.wins > 150) {
+            announcement += "🏆 ᴄᴀᴍᴘᴇᴏ́ɴ |";
+            chatColor = "0xFFD700";
+            nextRankWins = 190 - stats.wins;
+        } else if (stats.wins > 120) {
+            announcement += "⚜️ ᴘʀɪᴍᴇ |";
+            chatColor = "0x03e5e8";
+            nextRankWins = 150 - stats.wins;
+        } else if (stats.wins > 80) {
+            announcement += "🍃 ᴛɪᴛᴜʟᴀʀ |";
+            chatColor = "0x41CD7F";
+            nextRankWins = 120 - stats.wins;
+        } else if (stats.wins > 50) {
+            announcement += "💣 ᴀᴠᴀɴᴢᴀᴅᴏ |";
+            chatColor = "0xFF3C3C";
+            nextRankWins = 80 - stats.wins;
+        } else if (stats.wins > 30) {
+            announcement += "🍀 ᴊᴜᴠᴇɴɪʟ |";
+            chatColor = "0x77FE24";
+            nextRankWins = 50 - stats.wins;
+        } else if (stats.wins > 15) {
+            announcement += "🎉 ᴀᴘʀᴇɴᴅɪᴢ |";
+            chatColor = "0x51AEFF";
+            nextRankWins = 30 - stats.wins;
+        } else if (stats.wins > 5) {
+            announcement += "⚽️ ɴᴜᴇᴠᴏ |";
+            chatColor = "0x929292";
+            nextRankWins = 15 - stats.wins;
+        } else {
+            announcement += "⚽️ ɴᴜᴇᴠᴏ |";
+            chatColor = "0x929292";
+            nextRankWins = 5 - stats.wins;
+        }
+
+        room.sendAnnouncement(`Tu rango actual es ${announcement} ${player.name}`, player.id, chatColor, 'normal', 0);
+        room.sendAnnouncement(`Necesitas ${nextRankWins ? nextRankWins : '6'} victorias para subir de rango.`, player.id, 0xFFFFFF, 'normal', 0);
+        room.sendAnnouncement("", player.id, 0xffe5e5, "bold", 0);
+        return false;
+    } else if (["!me", "!yo"].includes(message[0].toLowerCase())) {
+
+        if (localStorage.getItem(authArray[player.id][0])) {
+            var stats = JSON.parse(localStorage.getItem(authArray[player.id][0]));
+        } else {
+            var stats = new HaxStatistics(player.name);
+        }
+
+        // Asignar 0 si alguna estadística es undefined
+        stats.games = stats.games || 0;
+        stats.wins = stats.wins || 0;
+        stats.loses = stats.loses || 0;
+        stats.draws = stats.draws || 0;
+        stats.playtime = stats.playtime || 0;
+        stats.goals = stats.goals || 0;
+        stats.assists = stats.assists || 0;
+        stats.OG = stats.OG || 0;
+        stats.CS = stats.CS || 0;
+
+        room.sendAnnouncement(`Tus estadisticas ${player.name}`, player.id, infoColor, "bold", 1);
+        room.sendAnnouncement(`🕹️ Juegos: ${stats.games}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🏆 Victorias: ${stats.wins}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`😿 Derrotas: ${stats.loses}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`⚽ Empates: ${stats.draws}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`⌛ Tiempo jugado: ${getTimeStats(stats.playtime)}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🌟 Goles: ${stats.goals}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`👟 Asistencias: ${stats.assists}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🐸 Autogoles: ${stats.OG}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🥅 CS: ${stats.CS}`, player.id, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`Recuerda que las estadisticas solo se suman en 4v4`, player.id, errorColor, "bold", 0);
+
+        return false;
+    } else if (["!mostrarme", "!mstats", "!mostrame"].includes(message[0].toLowerCase())) {
+
+        if (MostrarCooldown.has(authArray[player.id][0])) {
+            room.sendAnnouncement(`⛔ Tienes que esperar 6 minutos para usar este comando nuevamente.`, player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        if (localStorage.getItem(authArray[player.id][0])) {
+            var stats = JSON.parse(localStorage.getItem(authArray[player.id][0]));
+        } else {
+            var stats = new HaxStatistics(player.name);
+        }
+
+        // Asignar 0 si alguna estadística es undefined
+        stats.games = stats.games || 0;
+        stats.wins = stats.wins || 0;
+        stats.loses = stats.loses || 0;
+        stats.draws = stats.draws || 0;
+        stats.playtime = stats.playtime || 0;
+        stats.goals = stats.goals || 0;
+        stats.assists = stats.assists || 0;
+        stats.OG = stats.OG || 0;
+        stats.CS = stats.CS || 0;
+
+        room.sendAnnouncement(`Estadisticas de ${player.name}`, null, infoColor, "bold", 1);
+        room.sendAnnouncement(`🕹️ Juegos: ${stats.games}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🏆 Victorias: ${stats.wins}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`😿 Derrotas: ${stats.loses}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`⚽ Empates: ${stats.draws}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`⌛ Tiempo jugado: ${getTimeStats(stats.playtime)}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🌟 Goles: ${stats.goals}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`👟 Asistencias: ${stats.assists}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🐸 Autogoles: ${stats.OG}`, null, anuncioColor, "bold", 0);
+        room.sendAnnouncement(`🥅 CS: ${stats.CS}`, null, anuncioColor, "bold", 0);
+
+        MostrarCooldown.add(authArray[player.id][0]);
+        setTimeout(() => {
+            MostrarCooldown.delete(authArray[player.id][0]);
+        }, 360000);
+
+        return false;
+
+    } else if (["!games"].includes(message[0].toLowerCase())) {
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).games,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprovecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("🕹️ Juegos:", player.id, 0xD0F403, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0xD0F403, "bold", 1);
+
+        return false;
+    } else if (["!wins"].includes(message[0].toLowerCase())) {
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).wins,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprobecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("🏆 Victorias:", player.id, 0xFFE205, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0xFFE205, "bold", 1);
+
+        return false;
+    } else if (["!loses"].includes(message[0].toLowerCase())) {
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).loses,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprobecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("😿 Derrotas:", player.id, 0x00FEBA, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0x00FEBA, "bold", 1);
+
+        return false;
+    } else if (["!goals"].includes(message[0].toLowerCase())) {
+
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).goals,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprobecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("⚽ Goles:", player.id, 0xF9FAFA, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0xF9FAFA, "bold", 1);
+
+        return false;
+    } else if (["!cs"].includes(message[0].toLowerCase())) {
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).CS,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprobecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("🥅 CS:", player.id, 0xFF0B0B, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0xFF0B0B, "bold", 1);
+
+        return false;
+    } else if (["!assists"].includes(message[0].toLowerCase())) {
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).assists,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprobecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("👟 Asistencias:", player.id, 0x0B44FF, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0x0B44FF, "bold", 1);
+
+        return false;
+
+    } else if (["!og"].includes(message[0].toLowerCase())) {
+        var leaderboard = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key.length == 43)
+                leaderboard.push([
+                    JSON.parse(localStorage.getItem(key)).playerName,
+                    JSON.parse(localStorage.getItem(key)).OG,
+                ]);
+        }
+        if (leaderboard.length < 5) {
+            room.sendAnnouncement(
+                '⛔ ¡Aun no existen los tops, aprobecha y posicionate en el primer lugar!',
+                player.id,
+                errorColor,
+                'bold',
+                1
+            );
+            return false;
+        }
+        leaderboard.sort(function (a, b) { return b[1] - a[1]; });
+        var rankingString = ``;
+        for (let i = 0; i < 3; i++) {
+            let playerName = leaderboard[i][0];
+            let playerStat = leaderboard[i][1];
+            rankingString += ` [Top #${i + 1}] ${playerName}: ${playerStat}.\n`;
+        }
+        rankingString = rankingString.substring(0, rankingString.length - 2);
+        room.sendAnnouncement("😂 Autogoles:", player.id, 0xFE03B7, "bold", 0);
+        room.sendAnnouncement(rankingString, player.id, 0xFE03B7, "bold", 1);
+
+        return false;
+    } else if (["!incognito", "!inco"].includes(message[0].toLowerCase())) {
+        
+        if (IncognitoCooldown.has(authArray[player.id][0])) {
+            room.sendAnnouncement(`⛔ Tienes que esperar 7 minutos para usar este comando nuevamente.`, player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        var args = mensajetotal.split(' ');
+        args.shift();
+        var mensajeanonimo = args.join(" ");
+
+        if (!mensajeanonimo) {
+            room.sendAnnouncement(
+                "⛔ Para usar este comando debes poner !incognito + el mensaje",
+                player.id,
+                errorColor,
+                "bold",
+                1
+            );
+            return false;
+        }
+
+        room.sendAnnouncement(
+            `🕵️‍♀️ Mensaje anónimo: ${mensajeanonimo}`,
+            null,
+            0x6A53FF,
+            "bold",
+            2
+        );
+
+        IncognitoCooldown.add(authArray[player.id][0]);
+        setTimeout(() => {
+            IncognitoCooldown.delete(authArray[player.id][0]);
+        }, 420000);
+
+        return false;
+    } else if (["!dc", "!discord"].includes(message[0].toLowerCase())) {
+        room.sendAnnouncement(`🔵 Nuestro discord oficial: ${discord}`, player.id, 0x7289da, "bold", 0);
+        return false;
+    } else if (["!llamaradmin", "!calladmin"].includes(message[0].toLowerCase())) {
+
+        if (llamarAdminCooldown.has(authArray[player.id][0])) {
+            room.sendAnnouncement(`⛔ Tienes que esperar 7 minutos para usar este comando nuevamente.`, player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        if (players.find((player) => player.admin)) {
+            room.sendAnnouncement(
+                `⛔ Ya hay un administrador presente en la sala`,
+                player.id,
+                errorColor,
+                "bold",
+                1
+            );
+            return false;
+        }
+
+        var args = message;
+        args.shift();
+        var reason = args.join(" ");
+
+        if (!reason) {
+            room.sendAnnouncement(
+                "⛔ Para usar este comando debes poner !llamaradmin + la razón por lo que lo haces.",
+                player.id,
+                errorColor,
+                "bold",
+                1
+            );
+            return false;
+        }
+
+        var request = new XMLHttpRequest();
+        request.open("POST", adminWebhook);
+        request.setRequestHeader('Content-type', 'application/json');
+
+        var formattedMessage = {
+            content: idderoldeadmin + " para entrar a la sala da click en el titulo del embed.",
+            allowed_mentions: {
+                parse: ["roles"]
+            },
+            embeds: [{
+                author: {
+                    name: `El jugador ${player.name} ha llamado a un admin`,
+                    url: roomLink,
+                },
+                description: `Razón: ${reason}`,
+                color: 0x2b2d31,
+                fields: [
+                    {
+                        name: "*Detalles del jugador*",
+                        value: `\n- Nombre del jugador: ${player.name}\n- **Auth**: ${authArray[player.id][0]}\n- **Conn**: ${authArray[player.id][1]}`,
+                        inline: true,
+                    },
+                ],
+                footer: {
+                    text: 'Bot by J4zeJ',
+                },
+            }],
+        };
+
+        request.send(JSON.stringify(formattedMessage));
+
+        room.sendAnnouncement(
+            `👍 Recibiras ayuda de un admin pronto`,
+            player.id,
+            successColor,
+            "bold",
+            2
+        );
+
+        llamarAdminCooldown.add(authArray[player.id][0]);
+        setTimeout(() => {
+            llamarAdminCooldown.delete(authArray[player.id][0]);
+        }, 420000);
+
+        return false;
+    } else if (["!saltarfila"].includes(message[0].toLowerCase())) {
+
+        if (saltarfilaCooldown.has(authArray[player.id][0]) && getRole(player) == Role.VIP) {
+            room.sendAnnouncement(`⛔ Tienes que esperar 10 minutos para usar este comando nuevamente.`, player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        if (!getRole(player) == Role.VIP) {
+            return false;
+        } else if (player.team == 1 || player.team == 2) {
+            room.sendAnnouncement(`⛔ No puedes usar este comando mientras estes en un partido.`, player.id, errorColor, "bold", 2);
+            return false;
+        }
+
+
+
+        var comandosvip = ["!bottom", "!saltarfila"];
+
+        var index = comandosvip.indexOf(message[0]);
+        if (index !== -1) {
+            var id = [];
+            id.push(player.id);
+            room.reorderPlayers(id, Boolean(index));
+        }
+
+        if (getRole(player) == Role.VIP) {
+
+            saltarfilaCooldown.add(authArray[player.id][0]);
+            setTimeout(() => {
+                saltarfilaCooldown.delete(authArray[player.id][0]);
+            }, 600000);
+
+        }
+
+        return false;
+    } else if (["!banquear"].includes(message[0].toLowerCase())) {
+
+        if (BanquearCooldown.has(authArray[player.id][0]) && getRole(player) == Role.VIP) {
+            room.sendAnnouncement(`⛔ Tienes que esperar 10 minutos para usar este comando nuevamente.`, player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        if (!getRole(player) == Role.VIP) {
+            return false;
+        } else if (!player.team == 1 || !player.team == 2) {
+            room.sendAnnouncement(`⛔ Tienes que estar en un equipo para usar este comando.`, player.id, errorColor, "bold", 2);
+            return false;
+        }
+
+        if (message.length !== 2 || !message[1].startsWith('#')) {
+            room.sendAnnouncement(`⛔ Información inválida, el formato correcto es !banquear #id.`, player.id, errorColor, "bold", 2);
+            return false;
+        }
+
+        var playerId = parseInt(message[1].substring(1));
+
+        // Verificar si el jugador existe en la sala
+        var targetPlayer = room.getPlayer(playerId);
+        if (!targetPlayer) {
+            room.sendAnnouncement(`⛔ No existe ese id en la sala, !banquear #id.`, player.id, errorColor, "bold", 2);
+            return false;
+        } else if (targetPlayer.team !== player.team) {
+            room.sendAnnouncement(`⛔ Tienes que estar en el mismo equipo que el jugador que vas a banquear.`, player.id, errorColor, "bold", 2);
+            return false;
+        }
+
+        if (targetPlayer.id == player.id) {
+            room.setPlayerTeam(targetPlayer.id, Team.SPECTATORS);
+                room.sendAnnouncement(
+                    `${player.name} se autobanqueo...`,
+                    null,
+                    0xDAC372,
+                    "bold",
+                    2
+                );
+
+            return false;
+
+        } else {
+
+            room.setPlayerTeam(targetPlayer.id, Team.SPECTATORS);
+                room.sendAnnouncement(
+                    `${player.name} banqueo a ${targetPlayer.name}.`,
+                    null,
+                    0xDAC372,
+                    "bold",
+                    2
+                );
+
+            if (getRole(player) == Role.VIP) {
+
+                BanquearCooldown.add(authArray[player.id][0]);
+                setTimeout(() => {
+                    BanquearCooldown.delete(authArray[player.id][0]);
+                }, 600000);
+
+            }
+
+            return false;
+
+        }
+
+    } else if (["!verstats"].includes(message[0].toLowerCase())) {
+
+
+        if (!getRole(player) == Role.VIP) {
+            return false;
+        }
+
+        if (message.length !== 2 || !message[1].startsWith('#')) {
+            room.sendAnnouncement(`⛔ Información inválida, el formato correcto es !verstats #id.`, player.id, errorColor, "bold", 2);
+            return false;
+        }
+
+        var playerId = parseInt(message[1].substring(1));
+
+        // Verificar si el jugador existe en la sala
+        var targetPlayer = room.getPlayer(playerId);
+        if (!targetPlayer) {
+            room.sendAnnouncement(`⛔ No existe ese id en la sala, !verstats #id.`, player.id, errorColor, "bold", 2);
+            return false;
+        }
+
+        if (localStorage.getItem(authArray[targetPlayer.id][0])) {
+            var stats = JSON.parse(localStorage.getItem(authArray[targetPlayer.id][0]));
+        } else {
+            var stats = new HaxStatistics(targetPlayer.name);
+        }
+
+        if (targetPlayer.id == player.id) {
+
+            // Asignar 0 si alguna estadística es undefined
+            stats.games = stats.games || 0;
+            stats.wins = stats.wins || 0;
+            stats.loses = stats.loses || 0;
+            stats.draws = stats.draws || 0;
+            stats.playtime = stats.playtime || 0;
+            stats.goals = stats.goals || 0;
+            stats.assists = stats.assists || 0;
+            stats.OG = stats.OG || 0;
+            stats.CS = stats.CS || 0;
+
+            room.sendAnnouncement(`Tus estadisticas ${player.name}`, player.id, infoColor, "bold", 1);
+            room.sendAnnouncement(`🕹️ Juegos: ${stats.games}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🏆 Victorias: ${stats.wins}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`😿 Derrotas: ${stats.loses}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`⚽ Empates: ${stats.draws}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`⌛ Tiempo jugado: ${getTimeStats(stats.playtime)}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🌟 Goles: ${stats.goals}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`👟 Asistencias: ${stats.assists}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🐸 Autogoles: ${stats.OG}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🥅 CS: ${stats.CS}`, player.id, anuncioColor, "bold", 0);
+
+            return false;
+
+        } else {
+
+            // Asignar 0 si alguna estadística es undefined
+            stats.games = stats.games || 0;
+            stats.wins = stats.wins || 0;
+            stats.loses = stats.loses || 0;
+            stats.draws = stats.draws || 0;
+            stats.playtime = stats.playtime || 0;
+            stats.goals = stats.goals || 0;
+            stats.assists = stats.assists || 0;
+            stats.OG = stats.OG || 0;
+            stats.CS = stats.CS || 0;
+
+            room.sendAnnouncement(`Estadisticas de ${targetPlayer.name}`, player.id, infoColor, "bold", 1);
+            room.sendAnnouncement(`🕹️ Juegos: ${stats.games}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🏆 Victorias: ${stats.wins}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`😿 Derrotas: ${stats.loses}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`⚽ Empates: ${stats.draws}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`⌛ Tiempo jugado: ${getTimeStats(stats.playtime)}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🌟 Goles: ${stats.goals}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`👟 Asistencias: ${stats.assists}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🐸 Autogoles: ${stats.OG}`, player.id, anuncioColor, "bold", 0);
+            room.sendAnnouncement(`🥅 CS: ${stats.CS}`, player.id, anuncioColor, "bold", 0);
+
+            return false;
+
+        }
+    } else if (["!ban"].includes(message[0].toLowerCase())) {
+
+        if (!player.admin) {
+            return false;
+        }
+
+        const AuthJugador = message[1];
+        const Duración = message[2];
+
+        if (typeof Duración !== 'string') {
+            room.sendAnnouncement("⛔ Duración no válida. Ejemplo correcto: !ban <auth/#id> 10m", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const duration = parseDuration(Duración);
+
+        if (message[1].startsWith('#')) {
+            if (message.length !== 3) {
+                room.sendAnnouncement(`⛔ Información inválida, el formato correcto es !ban <auth/#id> 10m.`, player.id, errorColor, "bold", 2);
+                return false;
+            }
+
+            var playerId = parseInt(message[1].substring(1));
+
+            // Verificar si el jugador existe en la sala
+            var Jugador = room.getPlayer(playerId);
+            if (!Jugador) {
+                room.sendAnnouncement(`⛔ No existe ese id en la sala, !ban <auth/#id> 10m.`, player.id, errorColor, "bold", 2);
+                return false;
+            }
+
+            if (!duration) {
+                room.sendAnnouncement("⛔ Duración incorrecta. Usa 60s, 60m, 24h, 30d, 1y. Ejemplo: !ban <auth/#id> 10m", player.id, errorColor, "bold", 1);
+                return false;
+            }
+
+            ListaBaneados.set(authArray[Jugador.id][1], { auth: authArray[Jugador.id][0] });
+            room.sendAnnouncement(`¡${Jugador.name} fue baneado por incumplir nuestras reglas por ${Duración}.`, null, successColor, "bold", 2);
+
+            room.kickPlayer(Jugador.id, `Estas baneado temporalmente por ${Duración}.`, false);
+
+            var request = new XMLHttpRequest();
+            request.open("POST", banWebhook);
+            request.setRequestHeader('Content-type', 'application/json');
+
+            var formattedMessage = {
+                embeds: [{
+                    author: {
+                        name: 'Informe de sanción',
+                        url: roomLink,
+                    },
+                    description: `Razón / Duración: ${Duración}\n🔴 Admin: ${player.name}`,
+                    color: 0x2b2d31,
+                    fields: [
+                        {
+                            name: "*Detalles del jugador baneado*",
+                            value: `\n- Nombre del jugador: ${Jugador.name}\n- **Auth**: ${authArray[Jugador.id][0]}\n- **Conn**: ${authArray[Jugador.id][1]}`,
+                            inline: true,
+                        },
+                    ],
+                    footer: {
+                        text: 'Bot by J4zeJ',
+                    },
+                }],
+            };
+
+            request.send(JSON.stringify(formattedMessage));
+
+            setTimeout(() => {
+
+                if (ListaBaneados.has(authArray[Jugador.id][1])) {
+                    ListaBaneados.delete(authArray[Jugador.id][1]);
+                    room.sendAnnouncement(`¡${Jugador.name} ha cumplido su condena, ha sido desbaneado!`, null, successColor, "bold", 2);
+                }
+            }, duration);
+
+            return false;
+
+        } else if (!duration) {
+            room.sendAnnouncement("⛔ Duración incorrecta. Usa 60s, 60m, 24h, 30d, 1y. Ejemplo: !ban <auth/#id> 10m", player.id, errorColor, "bold", 1);
+            return false;
+        } else if (!logsUsuarios.has(AuthJugador)) {
+            room.sendAnnouncement("⛔ No existe un jugador con esa autenticación", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const playerInfo = logsUsuarios.get(AuthJugador);
+        const targetName = playerInfo.name;
+        const targetIDPlayer = playerInfo.id;
+        const targetCONN = playerInfo.conn;
+
+        if (ListaBaneados.has(playerInfo.conn)) {
+            room.sendAnnouncement("⛔ Ya existe un jugador baneado con esa auth.", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const targetPlayer = room.getPlayerList().find(p => p.id === targetIDPlayer);
+
+        if (targetPlayer) {
+            room.kickPlayer(targetIDPlayer, `Estas baneado temporalmente, si crees que ha sido un error comunícate con nosotros ${discord}`, false);
+        }
+
+        ListaBaneados.set(targetCONN, { auth: AuthJugador });
+        room.sendAnnouncement(`¡${targetName} fue baneado por incumplir nuestras reglas por ${Duración}.`, null, successColor, "bold", 2);
+
+        var request = new XMLHttpRequest();
+        request.open("POST", banWebhook);
+        request.setRequestHeader('Content-type', 'application/json');
+
+        var formattedMessage = {
+            embeds: [{
+                author: {
+                    name: 'Informe de sanción',
+                    url: roomLink,
+                },
+                description: `Razón / Duración: ${Duración}\n🔴 Admin: ${player.name}`,
+                color: 0x2b2d31,
+                fields: [
+                    {
+                        name: "*Detalles del jugador baneado*",
+                        value: `\n- Nombre del jugador: ${targetName}\n- **Auth**: ${AuthJugador}\n- **Conn**: ${targetCONN}`,
+                        inline: true,
+                    },
+                ],
+                footer: {
+                    text: 'Bot by J4zeJ',
+                },
+            }],
+        };
+
+        request.send(JSON.stringify(formattedMessage));
+
+        setTimeout(() => {
+
+            if (ListaBaneados.has(targetCONN)) {
+                ListaBaneados.delete(targetCONN);
+                room.sendAnnouncement(`¡${targetName} ha cumplido su condena, ha sido desbaneado!`, null, successColor, "bold", 2);
+            }
+        }, duration);
+
+        return false;
+    } else if (["!mute"].includes(message[0].toLowerCase())) {
+
+        if (!player.admin) {
+            return false;
+        }
+
+        const AuthJugador = message[1];
+        const Duración = message[2];
+
+        if (typeof Duración !== 'string') {
+            room.sendAnnouncement("⛔ Duración no válida. Ejemplo correcto: !mute <auth/#id> 10m", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const duration = parseDuration(Duración);
+
+        if (message[1].startsWith('#')) {
+            if (message.length !== 3) {
+                room.sendAnnouncement(`⛔ Información inválida, el formato correcto es !mute <auth/#id> 10m.`, player.id, errorColor, "bold", 2);
+                return false;
+            }
+
+            var playerId = parseInt(message[1].substring(1));
+
+            // Verificar si el jugador existe en la sala
+            var targetPlayer = room.getPlayer(playerId);
+            if (!targetPlayer) {
+                room.sendAnnouncement(`⛔ No existe ese id en la sala, !mute <auth/#id> 10m.`, player.id, errorColor, "bold", 2);
+                return false;
+            }
+
+            if (ListaMuteados.has(authArray[targetPlayer.id][0])) {
+                room.sendAnnouncement("⛔ Ya existe un jugador muteado con esa auth, id.", player.id, errorColor, "bold", 1);
+                return false;
+            }
+
+            if (!duration) {
+                room.sendAnnouncement("⛔ Duración incorrecta. Usa 60s, 60m, 24h, 30d, 1y. Ejemplo: !mute <auth/#id> 10m", player.id, errorColor, "bold", 1);
+                return false;
+            }
+
+            ListaMuteados.set(authArray[targetPlayer.id][0]);
+            room.sendAnnouncement(`¡${targetPlayer.name} fue muteado por incumplir nuestras reglas.`, null, successColor, "bold", 2);
+
+            setTimeout(() => {
+                if (ListaMuteados.has(authArray[targetPlayer.id][0])) {
+                    ListaMuteados.delete(authArray[targetPlayer.id][0]);
+                    room.sendAnnouncement(`¡${targetPlayer.name} ha cumplido su condena, ha sido desmuteado!`, null, successColor, "bold", 2);
+                }
+            }, duration);
+
+            return false;
+
+        } else if (!duration) {
+            room.sendAnnouncement("⛔ Duración incorrecta. Usa 60s, 60m, 24h, 30d, 1y. Ejemplo: !mute <auth/#id> 10m", player.id, errorColor, "bold", 1);
+            return false;
+        } else if (!logsUsuarios.has(AuthJugador)) {
+            room.sendAnnouncement("⛔ No existe un jugador con esa autenticación", player.id, errorColor, "bold", 1);
+            return false;
+        } else if (ListaMuteados.has(AuthJugador)) {
+            room.sendAnnouncement("⛔ Ya existe un jugador muteado con esa auth/id.", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const playerInfo = logsUsuarios.get(AuthJugador);
+        const targetName = playerInfo.name;
+
+        ListaMuteados.set(AuthJugador);
+        room.sendAnnouncement(`¡${targetName} fue muteado por incumplir nuestras reglas.`, null, successColor, "bold", 2);
+
+        setTimeout(() => {
+
+            if (ListaMuteados.has(AuthJugador)) {
+                ListaMuteados.delete(AuthJugador);
+                room.sendAnnouncement(`¡${targetName} ha cumplido su condena, ha sido desmuteado!`, null, successColor, "bold", 2);
+            }
+        }, duration);
+
+        return false;
+    } else if (["!ownerpss"].includes(message[0].toLowerCase())) {
+        if (getRole(player) == Role.OWNER) {
+            if (message.length === 1) {
+                room.sendAnnouncement(`🔒 La contraseña es: ${contraseñaOwner}.`, player.id, 0xFFFC27, "bold", 1);
+            } else if (message.length === 2) {
+                var newPass = message[1];
+                if (newPass.indexOf(" ") === -1 && newPass.length <= 15) {
+                    contraseñaOwner = newPass;
+                    localStorage.setItem("contraseñaOwner", JSON.stringify(contraseñaOwner));
+                    room.sendAnnouncement(`🔒 Nueva contraseña ha sido guardada: ${contraseñaOwner}.`, player.id, 0xFFFC27, "bold", 2);
+
+                    console.log("Nueva contraseña ha sido guardada: " + contraseñaOwner);
+                } else {
+                    room.sendAnnouncement(`⛔ La nueva contraseña debe ser una palabra de hasta 15 caracteres sin espacios.`, player.id, errorColor, "bold", 1);
+                }
+            } else if (message.length > 2) {
+                room.sendAnnouncement(`⛔ La nueva contraseña debe ser solo una palabra.`, player.id, errorColor, "bold", 1);
+            }
+
+        }
+        return false;
+    } else if (["!lock"].includes(message[0].toLowerCase()) && getRole(player) === Role.OWNER) {
+        room.setPassword(message[1]);
+        room.sendAnnouncement(`Sala bloqueada por ${player.name}`, null, 0xDAC372, "bold", 2);
+        room.sendAnnouncement(`🔒 Contraseña: ${message[1]}`, player.id, successColor, "bold", 0);
+        return false;
+    } else if (["!unlock"].includes(message[0].toLowerCase()) && getRole(player) === Role.OWNER) {
+        room.setPassword();
+        room.sendAnnouncement(`Sala desbloqueada por ${player.name}`, null, 0xDAC372, "bold", 2);
+        return false;
+    } else if (["!unmute"].includes(message[0].toLowerCase()) && getRole(player) === Role.OWNER) {
+
+        const AuthJugador = message[1];
+
+        if (!logsUsuarios.has(AuthJugador)) {
+            room.sendAnnouncement("⛔ No existe un jugador con esa autenticación", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const playerInfo = logsUsuarios.get(AuthJugador);
+        const targetName = playerInfo.name;
+
+        if (!ListaMuteados.has(AuthJugador)) {
+            room.sendAnnouncement("⛔ No existe ningun jugador muteado con ese auth.", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        ListaMuteados.delete(AuthJugador)
+        room.sendAnnouncement(`¡${targetName} ha cumplido su condena, ha sido desmuteado!`, null, successColor, "bold", 2);
+
+        return false;
+
+    } else if (["!unban"].includes(message[0].toLowerCase()) && getRole(player) === Role.OWNER) {
+
+        const AuthJugador = message[1];
+
+        if (!logsUsuarios.has(AuthJugador)) {
+            room.sendAnnouncement("⛔ No existe un jugador con esa autenticación", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        const playerInfo = logsUsuarios.get(AuthJugador);
+        const targetName = playerInfo.name;
+        const targetCONNe = playerInfo.conn;
+
+        if (!ListaBaneados.has(targetCONNe)) {
+            room.sendAnnouncement("⛔ No existe ningun jugador baneado con ese auth.", player.id, errorColor, "bold", 1);
+            return false;
+        }
+
+        ListaBaneados.delete(targetCONNe)
+        room.sendAnnouncement(`¡${targetName} ha cumplido su condena, ha sido desbaneado!`, null, successColor, "bold", 2);
+
+        return false;
+
+    }
+
+    if (message[0][0] == "!") {
+        return false;
+    }
+
+    // Rangos
+    if (localStorage.getItem(authArray[player.id][0])) {
+        stats = JSON.parse(localStorage.getItem(authArray[player.id][0]));
+    } else {
+        room.sendAnnouncement(
+            `⚽️ ɴᴜᴇᴠᴏ | ${player.name}: ${mensajetotal}`,
+            null,
+            0xCC9461,
+            "normal",
+        );
+        return false;
+    }
+
+    var announcement = "";
+    var chatColor = "";
+
+
+    if (stats.wins > 450) {
+        announcement += "☄️ ɪᴄᴏɴᴏ |";
+        chatColor = "0xFFFFFF";
+    } else if (stats.wins > 220) {
+        announcement += "⭐ ᴍᴀᴇsᴛʀᴏ |";
+        chatColor = "0xE8B362";
+    } else if (stats.wins > 170) {
+        announcement += "✨ ʟᴇʏᴇɴᴅᴀ |";
+        chatColor = "0xFA87A6";
+    } else if (stats.wins > 150) {
+        announcement += "🏆 ᴄᴀᴍᴘᴇᴏ́ɴ |";
+        chatColor = "0xFFD700";
+    } else if (stats.wins > 120) {
+        announcement += "⚜️ ᴘʀɪᴍᴇ |";
+        chatColor = "0x03e5e8";
+    } else if (stats.wins > 80) {
+        announcement += "🍃 ᴛɪᴛᴜʟᴀʀ |";
+        chatColor = "0x41CD7F";
+    } else if (stats.wins > 50) {
+        announcement += "💣 ᴀᴠᴀɴᴢᴀᴅᴏ |";
+        chatColor = "0xFF3C3C";
+    } else if (stats.wins > 30) {
+        announcement += "🍀 ᴊᴜᴠᴇɴɪʟ |";
+        chatColor = "0x77FE24";
+    } else if (stats.wins > 15) {
+        announcement += "🎉 ᴀᴘʀᴇɴᴅɪᴢ |";
+        chatColor = "0x51AEFF";
+    } else if (stats.wins > 5) {
+        announcement += "⚽️ ɴᴜᴇᴠᴏ |";
+        chatColor = "0xCC9461";
+    } else {
+        announcement += "⚽️ ɴᴜᴇᴠᴏ |";
+        chatColor = "0xCC9461";
+    }
+
+    var authdeljugador = authArray[player.id][0];
+
+    if (authdeljugador == "") {
+        announcement += "「⚡ Electrizante」";
+        chatColor = "0x00FFCD";
+    } else if (authdeljugador == "") {
+        announcement += "「🐐 GOAT」";
+        chatColor = "0xFFD700";
+    } else if (authdeljugador == "") {
+        announcement += "[𓆰𓆪]";
+        chatColor = "0x7FD1EE";
+    } else if (authdeljugador == "") {
+        announcement += "「🦧 tilin」";
+        chatColor = "0xE3D9149";
+    } else if (getRole(player) == Role.OWNER) {
+        announcement += "「🗣️ ᴏᴡɴᴇʀ」";
+        chatColor = "0xDD4949";
+    } else if (player.admin) {
+        announcement += "「‼️ ᴀᴅᴍɪɴ」";
+        chatColor = "0xF5841C";
+    } else if (getRole(player) == Role.VIP) {
+        announcement += "「💎 ᴠɪᴘ」";
+        chatColor = "0x94E8DE";
+    }
+
+    if (AFKSet.has(player.id)) {
+        chatColor = "0x888887";
+    }
+
+    room.sendAnnouncement(announcement + ` ${player.name}: ${mensajetotal}`, null, chatColor);
+    return false;
+};
+
+room.onPlayerActivity = function (player) {
+    if (gameState !== State.STOP) {
+        let pComp = getPlayerComp(player);
+        if (pComp != null) pComp.inactivityTicks = 0;
+    }
+};
+
+room.onPlayerBallKick = function (player) {
+    clearTimeout(kickOff);
+    if (playSituation != Situation.GOAL) {
+        var ballPosition = room.getBallPosition();
+        if (game.touchArray.length == 0 || player.id != game.touchArray[game.touchArray.length - 1].player.id) {
+            if (playSituation == Situation.KICKOFF) playSituation = Situation.PLAY;
+            lastTeamTouched = player.team;
+            game.touchArray.push(
+                new BallTouch(
+                    player,
+                    game.scores.time,
+                    getGoalGame(),
+                    ballPosition
+                )
+            );
+            lastTouches[0] = checkGoalKickTouch(
+                game.touchArray,
+                game.touchArray.length - 1,
+                getGoalGame()
+            );
+            lastTouches[1] = checkGoalKickTouch(
+                game.touchArray,
+                game.touchArray.length - 2,
+                getGoalGame()
+            );
+        }
+    }
+};
+
+function kickOffTimer() {
+    kickOff = setTimeout(() => {
+        const discProperties = room.getDiscProperties(0);
+        if (discProperties.x === 0 && discProperties.y === 0) {
+            room.setDiscProperties(0, { yspeed: 0.0000000000000000000001 });
+            room.pauseGame(true);
+            room.pauseGame(false);
+            clearTimeout(kickOff);
+        }
+    }, 15000);
+}
+
+var teams = [
+    // Uniformes
+    { ID: 1, longName: "Pinky panthers", uniform: [{ angle: 8, mainColor: [0x000000], avatarColor: 0xB00B58 }]},
+    { ID: 2, longName: "White fish", uniform: [{ angle: 8, mainColor: [0xFFFFFF, 0xB3AEAE, 0x808080], avatarColor: 0x916D2F }]},
+    { ID: 3, longName: "Blue diamond", uniform: [{ angle: 90, mainColor: [0x002033, 0x002033, 0x00EEFF], avatarColor: 0xBFE8FF }]},
+    { ID: 4, longName: "HaxEC", uniform: [{ angle: 90, mainColor: [0x528200, 0x074A00, 0xB3FF00], avatarColor: 0x000000 }]},
+];
+
+function getRandomIntegers(length) {
+    var randomInts = [0, 0];
+    var numbers = [];
+
+    if (!isNaN(length)) {
+        for (var n = 0; n < length; n++) {
+            numbers.push(n);
+        }
+    }
+
+    for (var i = 0; i < randomInts.length; i++) {
+        randomInts[i] = numbers[Math.floor(Math.random() * numbers.length)];
+
+        if (i < randomInts.length - 1) {
+            var index = numbers.indexOf(randomInts[i]);
+            if (index !== -1) {
+                numbers.splice(index, 1);
+            } else {
+                console.log("Error! - Uniformes");
+            }
+        }
+    }
+
+    return randomInts;
+}
+
+room.onGameStart = function (byPlayer) {
+    kickOffTimer();
+    clearTimeout(startTimeout);
+    if (byPlayer != null) clearTimeout(stopTimeout);
+    game = new Game();
+    possession = [0, 0];
+    actionZoneHalf = [0, 0];
+    gameState = State.PLAY;
+    endGameVariable = false;
+    goldenGoal = false;
+    playSituation = Situation.KICKOFF;
+    lastTouches = Array(2).fill(null);
+    lastTeamTouched = Team.SPECTATORS;
+    teamRedStats = [];
+    teamBlueStats = [];
+    if (teamRed.length == teamSize && teamBlue.length == teamSize) {
+        for (var i = 0; i < teamSize; i++) {
+            teamRedStats.push(teamRed[i]);
+            teamBlueStats.push(teamBlue[i]);
+        }
+    }
+
+    let teamRedWins = 0;
+    let teamBlueWins = 0;
+
+    for (var i = 0; i < teamRed.length; i++) {
+        if (localStorage.getItem(authArray[teamRed[i].id][0])) {
+            var stats = JSON.parse(localStorage.getItem(authArray[teamRed[i].id][0]));
+        } else {
+            var stats = new HaxStatistics(teamRed[i].name);
+        }
+        teamRedWins += stats.wins || 0;
+    }
+
+    for (var i = 0; i < teamBlue.length; i++) {
+        if (localStorage.getItem(authArray[teamBlue[i].id][0])) {
+            var stats = JSON.parse(localStorage.getItem(authArray[teamBlue[i].id][0]));
+        } else {
+            var stats = new HaxStatistics(teamBlue[i].name);
+        }
+        teamBlueWins += stats.wins || 0;
+    }
+
+    let totalWins = teamRedWins + teamBlueWins;
+    let teamRedWinProbability = totalWins === 0 ? 0 : teamRedWins / totalWins;
+    let teamBlueWinProbability = totalWins === 0 ? 0 : teamBlueWins / totalWins;
+
+    let redPercentage = isNaN(teamRedWinProbability) ? '0%' : `${Math.round(teamRedWinProbability * 100)}%`;
+    let bluePercentage = isNaN(teamBlueWinProbability) ? '0%' : `${Math.round(teamBlueWinProbability * 100)}%`;
+
+    var randomInts = getRandomIntegers(teams.length);
+    var randomInts2 = getRandomIntegers(teams.length);
+
+    while (randomInts[0] === randomInts2[0] || randomInts[1] === randomInts2[1]) {
+        randomInts2 = getRandomIntegers(teams.length);
+    }
+
+    var t1 = { teamID: 1, teamIndex: randomInts[0] };
+    var t2 = { teamID: 2, teamIndex: randomInts2[0] };
+
+    if (teams[t1.teamIndex] && teams[t2.teamIndex]) {
+        room.sendAnnouncement(``, null, anuncioColor, 'bold', 0);
+        room.sendAnnouncement(`🎲 Probabilidad de victoria:`, null, 0xd9a555, 'bold', 2);
+        room.sendAnnouncement(`🔴 ${teams[t1.teamIndex].longName} (${redPercentage}) | 🔵 ${teams[t2.teamIndex].longName} (${bluePercentage})`, null, 0xD5D5D5, 'bold', 0);
+        room.sendAnnouncement(``, null, anuncioColor, 'bold', 0);
+    }
+
+    if (teams[t1.teamIndex] && teams[t1.teamIndex].uniform) {
+        var uniformIndex1 = Math.floor(Math.random() * teams[t1.teamIndex].uniform.length);
+        room.setTeamColors(t1.teamID, teams[t1.teamIndex].uniform[uniformIndex1].angle, teams[t1.teamIndex].uniform[uniformIndex1].avatarColor, teams[t1.teamIndex].uniform[uniformIndex1].mainColor);
+    }
+
+    if (teams[t2.teamIndex] && teams[t2.teamIndex].uniform) {
+        var uniformIndex2 = Math.floor(Math.random() * teams[t2.teamIndex].uniform.length);
+        room.setTeamColors(t2.teamID, teams[t2.teamIndex].uniform[uniformIndex2].angle, teams[t2.teamIndex].uniform[uniformIndex2].avatarColor, teams[t2.teamIndex].uniform[uniformIndex2].mainColor);
+    }
+
+    setTimeout(() => {
+        teamRedWins = 0;
+        teamBlueWins = 0;
+    }, 1000);
+};
+
+room.onGameStop = function (byPlayer) {
+    clearTimeout(kickOff);
+    clearTimeout(stopTimeout);
+    clearTimeout(unpauseTimeout);
+    if (byPlayer != null) clearTimeout(startTimeout);
+    game.rec = room.stopRecording();
+    if (
+        !cancelGameVariable && game.playerComp[0].length + game.playerComp[1].length > 0 &&
+        (
+            (game.scores.timeLimit != 0 &&
+                ((game.scores.time >= 0.5 * game.scores.timeLimit &&
+                    game.scores.time < 0.75 * game.scores.timeLimit &&
+                    game.scores.red != game.scores.blue) ||
+                    game.scores.time >= 0.75 * game.scores.timeLimit)
+            ) ||
+            endGameVariable
+        )
+    ) {
+        fetchSummaryEmbed(game);
+    }
+    cancelGameVariable = false;
+    gameState = State.STOP;
+    playSituation = Situation.STOP;
+    updateTeams();
+    handlePlayersStop(byPlayer);
+    handleActivityStop();
+};
+
+room.onGamePause = function (byPlayer) {
+    clearTimeout(kickOff);
+    if (gameState == State.PAUSE) {
+        if (byPlayer != null) {
+            room.sendAnnouncement(
+                `⚽ Juego pausado por el admin ${byPlayer.name}.`,
+                null,
+                anuncioColor,
+                'bold',
+                0
+            );
+        }
+    }
+    clearTimeout(unpauseTimeout);
+    gameState = State.PAUSE;
+};
+
+room.onGameUnpause = function (byPlayer) {
+    kickOffTimer();
+    unpauseTimeout = setTimeout(() => {
+        gameState = State.PLAY;
+    }, 2000);
+    if (byPlayer != null) {
+        room.sendAnnouncement(
+            `⚽ Juego despausado por el admin ${byPlayer.name}.`,
+            null,
+            anuncioColor,
+            'bold',
+            0
+        );
+    }
+    if (
+        (teamRed.length == teamSize && teamBlue.length == teamSize && chooseMode) ||
+        (teamRed.length == teamBlue.length && teamSpec.length < 2 && chooseMode)
+    ) {
+        deactivateChooseMode();
+    }
+};
+
+function setPlayerProperties(player, radius, avatar, timeout) {
+    const originalAvatar = null;
+    room.setPlayerDiscProperties(player.id, { radius });
+    room.setPlayerAvatar(player.id, avatar);
+    setTimeout(() => {
+        room.setPlayerDiscProperties(player.id, { radius: 15 });
+        room.setPlayerAvatar(player.id, originalAvatar);
+    }, timeout);
+}
+
+function getGoalAttribution(team) {
+    var goalAttribution = Array(2).fill(null);
+    if (lastTouches[0] != null) {
+        if (lastTouches[0].player.team == team) {
+            if (lastTouches[1] != null && lastTouches[1].player.team == team) {
+                goalAttribution = [lastTouches[0].player, lastTouches[1].player];
+            } else {
+                goalAttribution = [lastTouches[0].player, null];
+            }
+        } else {
+            goalAttribution = [lastTouches[0].player, null];
+        }
+    }
+    return goalAttribution;
+}
+
+room.onTeamGoal = function (team) {
+    kickOffTimer();
+    const scores = room.getScores();
+    game.scores = scores;
+    playSituation = Situation.GOAL;
+    ballSpeed = getBallSpeed();
+
+    var goalAttribution = getGoalAttribution(team);
+
+    if (goalAttribution[0] != null && goalAttribution[0].team == team) {
+        if (
+            goalAttribution[1] != null &&
+            goalAttribution[1].team == team
+        ) {
+            game.goals.push(
+                new Goal(
+                    scores.time,
+                    team,
+                    goalAttribution[0],
+                    goalAttribution[1]
+                )
+            );
+
+
+
+            room.sendAnnouncement(`⚽ Golazo de ${goalAttribution[0].name}, con la maravillosa asistencia de ${goalAttribution[1].name}.`, null, goalAttribution[0].team === Team.RED ? redColor : blueColor, 'bold', 1);
+
+            setPlayerProperties(goalAttribution[0], 30, "⭐", 2000);
+            setPlayerProperties(goalAttribution[1], 25, "❤", 2000);
+
+                if (localStorage.getItem(authArray[goalAttribution[0].id][0])) {
+                    var stats = JSON.parse(localStorage.getItem(authArray[goalAttribution[0].id][0]));
+                } else {
+                    var stats = new HaxStatistics(goalAttribution[0].name);
+                }
+
+                stats.goals += 1;
+
+                localStorage.setItem(authArray[goalAttribution[0].id][0], JSON.stringify(stats));
+
+                if (localStorage.getItem(authArray[goalAttribution[1].id][0])) {
+                    var stats = JSON.parse(localStorage.getItem(authArray[goalAttribution[1].id][0]));
+                } else {
+                    var stats = new HaxStatistics(goalAttribution[1].name);
+                }
+
+                stats.assists += 1;
+
+                localStorage.setItem(authArray[goalAttribution[1].id][0], JSON.stringify(stats));
+        } else {
+
+            game.goals.push(
+                new Goal(scores.time, team, goalAttribution[0], null)
+            );
+
+            room.sendAnnouncement(`⚽ Increible el golazo que se acaba de marcar ${goalAttribution[0].name}.`, null, goalAttribution[0].team === Team.RED ? redColor : blueColor, 'bold', 1);
+
+            setPlayerProperties(goalAttribution[0], 30, "⭐", 2000);
+
+                if (localStorage.getItem(authArray[goalAttribution[0].id][0])) {
+                    var stats = JSON.parse(localStorage.getItem(authArray[goalAttribution[0].id][0]));
+                } else {
+                    var stats = new HaxStatistics(goalAttribution[0].name);
+                }
+
+                stats.goals += 1;
+
+                localStorage.setItem(authArray[goalAttribution[0].id][0], JSON.stringify(stats));
+
+        }
+    } else {
+
+        game.goals.push(new Goal(scores.time, team, null, null));
+
+        room.sendAnnouncement(`😂 Auto golazo de ${goalAttribution[0].name}.`, null, goalAttribution[0].team === Team.RED ? redColor : blueColor, 'bold', 1);
+
+        setPlayerProperties(goalAttribution[0], 0, null, 2000);
+
+            if (localStorage.getItem(authArray[goalAttribution[0].id][0])) {
+                var stats = JSON.parse(localStorage.getItem(authArray[goalAttribution[0].id][0]));
+            } else {
+                var stats = new HaxStatistics(goalAttribution[0].name);
+            }
+
+            stats.OG += 1;
+            localStorage.setItem(authArray[goalAttribution[0].id][0], JSON.stringify(stats));
+    }
+
+    if ((scores.scoreLimit != 0 && (scores.red == scores.scoreLimit || scores.blue == scores.scoreLimit)) || goldenGoal) {
+        goldenGoal = false;
+        stopTimeout = setTimeout(() => {
+            endGame(team);
+            room.stopGame();
+        }, 4000);
+    }
+};
+
+room.onPositionsReset = function () {
+    lastTouches = Array(2).fill(null);
+    lastTeamTouched = Team.SPECTATORS;
+    playSituation = Situation.KICKOFF;
+};
+
+room.onRoomLink = function (url) {
+    if (isFirstTime) {
+        console.clear();
+        roomLink = url;
+        console.log(`Contraseña Owner: ${contraseñaOwner}`);
+        isFirstTime = false;
+    }
+};
+
+room.onPlayerAdminChange = function (changedPlayer, byPlayer) {
+    updateTeams();
+    if (!changedPlayer.admin && getRole(changedPlayer) >= Role.ADMIN) {
+        room.setPlayerAdmin(changedPlayer.id, true);
+        return;
+    }
+};
+
+room.onKickRateLimitSet = function (min, rate, burst, byPlayer) {
+    if (byPlayer != null) {
+        room.setKickRateLimit(6, 0, 0);
+    }
+};
+
+room.onStadiumChange = function (newStadiumName, byPlayer) {
+    if (byPlayer !== null) {
+        if (getRole(byPlayer) < Role.OWNER) {
+            room.sendAnnouncement(
+                `⛔ No puedes cambiar los mapas de la sala.`,
+                byPlayer.id,
+                errorColor,
+                'bold',
+                0
+            );
+        } else {
+            room.sendAnnouncement(
+                `🚀 Mapa cambiado con exito.`,
+                byPlayer.id,
+                successColor,
+                'bold',
+                0
+            );
+        }
+    }
+};
+
+room.onGameTick = function () {
+    checkTime();
+    getLastTouchOfTheBall();
+    getGameStats();
+    handleActivity();
+    if (defMode == true) {
+        handleDef();
+    }
+};
+
+
+function centerText(string) {
+    var space = parseInt((100 - string.length) * 0.9, 10);
+    if (space <= 0) {
+        return string;
+    } else {
+        return ' '.repeat(space) + string + ' '.repeat(space);
+    }
+}
+
+function announce(msg, targetId, color, style, sound) {
+    if (targetId == null) { }
+    if (color == null) {
+        color = 0xDAC372;
+    }
+    if (style == null) {
+        style = "bold";
+    }
+    if (sound == null) {
+        sound = 0;
+    }
+    var centeredMsg = centerText(msg);
+    room.sendAnnouncement(centeredMsg, targetId, color, style, sound);
+}
+
+var announcements = [
+    "🌍 Ingrese 't' antes de su mensaje para hablar con el equipo",
+    "🔵 Únete a la Federación Ecuatoriana de Haxball " + discord,
+    "❗❗❗ Para ver todos los comandos usa !help",
+    "⁉️ Si una partida no se inicia correctamente puedes llamar a un admin con !llamaradmin",
+    "🔥 ¡Los jugadores vip tienen muchos beneficios, animate a probarlo!",
+    "💸 Puedes apoyarnos monetariamente, boosteando, siendo MVP o ayudando a mejorar el host para más información con !donaciones",
+    "🎦 ¡Todas nuestras partidas se mandan a nuestro discord!",
+    "👏 Gracias por jugar en nuestra sala publica Futsal AF 4v4",
+    "🏆 Con el comando !racha puedes ver cuantas victorias consecutivas tiene un equipo"
+];
+
+var currentAnnouncement = 0;
+setInterval(() => {
+    currentAnnouncement = Math.floor(Math.random() * announcements.length);
+    room.sendAnnouncement('', null);
+    room.sendAnnouncement(`${announcements[currentAnnouncement]}`, null, anuncioColor, "bold", 1);
+    room.sendAnnouncement('', null);
+}, 200000);
